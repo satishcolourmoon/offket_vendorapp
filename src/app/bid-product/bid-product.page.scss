@@ -1,0 +1,27 @@
+.bid-product{
+    background: #efefef;
+    margin: 0px;
+    padding: 10px;
+    text-align: center;
+    color: #081f65;
+}
+.vendor-head{
+    font-size:16px;
+    font-weight:600;
+    padding-inline:0px;
+}
+.bid-image{
+    border-radius:15px;
+    background:#f2f1ed;
+    box-shadow:none;
+}
+ion-button{
+    --background: #081f65;
+    width: 40%;
+    margin: 10px auto;
+    height:45px;
+    text-transform:none;
+    display: block;
+    --border-radius:15px;
+    outline:none;
+}

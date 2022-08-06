@@ -1,0 +1,97 @@
+<!-- <ion-header>
+  <ion-toolbar style="--background: #f47a20;color: #fff;">
+    <ion-back-button defaultHref slot="start"></ion-back-button>
+    <ion-title>Shop Detail</ion-title>
+  </ion-toolbar>
+  <ion-segment (ionChange)="segmentChanged($event)" value="{{currentSegment}}">
+    <ion-segment-button value="products">Products</ion-segment-button>
+    <ion-segment-button value="recent_orders">Recent Orders</ion-segment-button>
+    <ion-segment-button value="shopinfo">Shop Info</ion-segment-button>
+  </ion-segment>
+
+</ion-header>
+
+<ion-content #content>
+
+
+
+  <div *ngIf="currentSegment=='products'">
+    <ion-card no-padding *ngFor="let p of products">
+      <ion-card-content no-padding style="padding: 0px;">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="4">
+              <div style="width: 100px;height:100px;background-size: contain;background-repeat: no-repeat;border: 1px solid #f1f1f1;
+                border-radius: 5px;background-image: url({{p.image}});">
+
+              </div>
+            </ion-col>
+            <ion-col size="8">
+              <p><b>Name:</b> {{p.name}}</p>
+              <p><b>Price:</b> &#8377;{{p.price}}</p>
+              <p><b>Category:</b> {{p.categories}}</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+    <ion-button class="viewall_products" routerLink="/products">View All Products</ion-button>
+  </div>
+  <div *ngIf="currentSegment=='recent_orders'">
+
+    <ion-card *ngFor="let newOrder of orders" (click)="viewOrderDetails(newOrder.order_id)">
+      <ion-card-content>
+        <ion-row>
+          <ion-col class="orderInfoKey">OrderId</ion-col>
+          <ion-col>{{newOrder.order_id}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="orderInfoKey">Order Date</ion-col>
+          <ion-col>{{newOrder.order_date}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="orderInfoKey">Payment Type</ion-col>
+          <ion-col>{{newOrder.payment_type}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="orderInfoKey">Payment Status</ion-col>
+          <ion-col>{{newOrder.payment_status}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="orderInfoKey">Order Status</ion-col>
+          <ion-col>{{newOrder.order_status}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="orderInfoKey">Amount</ion-col>
+          <ion-col>&#8377;{{newOrder.amount}}</ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+    <ion-button class="viewall_products" routerLink="/orders">View All Orders</ion-button>
+  </div>
+  <div *ngIf="currentSegment=='shopinfo'" class="shopinfo">
+    <img src="{{shopDetail.shop_logo}}" alt="" style="width: 35%;margin: auto;display: block;">
+    <h3 style="text-align: center;">{{shopDetail.shop_name}}</h3>
+
+    <div style="margin:0px 20px;">
+      <p>
+        <ion-icon name="mail"></ion-icon> sales@cmr.com
+      </p>
+      <p>
+        <ion-icon name="call"></ion-icon> +91-9123456789
+      </p>
+      <p>
+        <ion-icon name="location"></ion-icon> DwarakaNagar, Vizag
+      </p>
+      <p>
+        <ion-icon name="time"></ion-icon> Mon-Sat (8:00 am to 10:00 pm)
+      </p>
+    </div>
+
+  </div>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end" *ngIf="currentSegment=='products'">
+    <ion-fab-button style="--background: #f47a20;" (click)="addproduct()">
+      <ion-icon name="add" style="font-size: 35px;"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content> -->

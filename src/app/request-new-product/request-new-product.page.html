@@ -1,0 +1,238 @@
+<ion-header>
+  <ion-toolbar style="--background: #05274d;color: #fff;">
+    <ion-back-button defaultHref slot="start"></ion-back-button>
+    <ion-title class='vendor-head'>Add New Product</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="addproductContainer">
+
+    <div>
+      <p style="text-align: center;"> If you want clone existing Product Click</p>
+      <ion-button color="danger" (click)="existingProduct(catId)">New</ion-button>
+    </div>
+
+
+
+    <!-- <form> -->
+    <!--  <ion-searchbar placeholder="Search Products" (ionChange)="getItems($event)" mode="ios"></ion-searchbar>
+        <ion-row *ngIf="nval==1">
+
+          <ion-list>
+            <ion-item *ngFor="let item of products" (click)="getProductData(item.id)">
+              <ion-label>{{item.name}}</ion-label>
+            </ion-item>
+           
+          </ion-list>
+
+           
+        </ion-row> -->
+
+
+    <ion-label position="floating">Product Name *</ion-label>
+    <ion-input name="product_name" [(ngModel)]="product_name" placeholder="Enter Product Name" #prodName></ion-input>
+
+
+    <ion-label position="floating">Category *</ion-label>
+    <ion-select placeholder="Select Category" name="category" [(ngModel)]="category" (ionChange)="getSubcategories()"
+      style="padding:11px 25px !important;">
+      <ion-select-option value="{{c.id}}" *ngFor="let c of categories">{{c.title}}</ion-select-option>
+    </ion-select>
+
+    <ion-label position="floating">Sub Category *</ion-label>
+    <ion-select placeholder="Select Sub Category" name="subcategory" [(ngModel)]="subcategory"
+      style="padding:11px 25px !important;"  (ionChange)="getproductBrands()">
+      <ion-select-option value="{{sc.id}}" *ngFor="let sc of sub_categories">{{sc.title}}</ion-select-option>
+    </ion-select>
+
+     <ion-label position="floating">Brands </ion-label>
+    <ion-select placeholder="Select Brand" name="brand" [(ngModel)]="brand" style="padding:11px 25px !important;">
+      <ion-select-option value="{{brd.id}}" *ngFor="let brd of brands">{{brd.brand_name}}</ion-select-option>
+    </ion-select>
+
+    <ion-label position="floating">Types </ion-label>
+    <ion-select placeholder="Select Type" name="type" [(ngModel)]="type" style="padding:11px 25px !important;">
+      <ion-select-option value="{{typ.id}}" *ngFor="let typ of types">{{typ.title}}</ion-select-option>
+    </ion-select>
+
+    <ion-label position="floating">Product Description *</ion-label>
+    <ion-textarea rows="6" cols="20" name="product_description" [(ngModel)]="product_description"
+      placeholder="Product Description" #pro_descName></ion-textarea>
+
+    <ion-label position="floating">Key Features *</ion-label>
+    <ion-textarea rows="6" cols="20" name="key_fetures" [(ngModel)]="key_fetures" placeholder="Enter Key Features"
+      #keyfeatName></ion-textarea>
+
+
+    <ion-label position="floating">Product Tags </ion-label>
+    <ion-select name="product_tags" [(ngModel)]="product_tags" placeholder="Select Product Tags" multiple="true"
+      style="padding:11px 25px !important;">
+      <ion-select-option value="{{tag.title}}" *ngFor="let tag of tags">{{tag.title}}</ion-select-option>
+    </ion-select>
+
+   
+
+
+    <!-- <ion-select placeholder="Manage Tax" name="tax" [(ngModel)]="tax" (ionChange)="getTax()" >
+        <ion-select-option value="yes">Yes</ion-select-option>
+        <ion-select-option value="no">No</ion-select-option>
+      </ion-select>
+
+      <ion-select placeholder="Select Tax" name="selectedtax" [(ngModel)]="selectedtax" *ngIf="taxname==true">
+        <ion-select-option value="{{ta.id}}" *ngFor="let ta of taxlist">{{ta.title}}</ion-select-option>
+      </ion-select> -->
+
+    <!-- <ion-label position="floating">Cancel Available </ion-label>
+      <ion-select placeholder="Cancel Available" name="cancel_available" [(ngModel)]="cancel_available" (ionChange)="getDays()" style="padding:11px 25px !important;">
+        <ion-select-option value="yes">Yes</ion-select-option>
+        <ion-select-option value="no">No</ion-select-option>
+      </ion-select> -->
+
+
+    <!-- <ion-label position="floating">Return Available </ion-label>
+    <ion-select placeholder="Return Available" name="return_available" [(ngModel)]="return_available"
+      (ionChange)="getDays()" style="padding:11px 25px !important;">
+      <ion-select-option value="yes">Yes</ion-select-option>
+      <ion-select-option value="no">No</ion-select-option>
+    </ion-select> -->
+
+    <!-- <div *ngIf="showdays==true">
+      <ion-input name="no_of_days" [(ngModel)]="no_of_days" placeholder="Return Number of Days"></ion-input>
+    </div> -->
+
+
+    <ion-label position="floating">Manage Stock </ion-label>
+    <ion-select placeholder="Manage Stock" name="manage_stock" [(ngModel)]="manage_stock"
+      style="padding:11px 25px !important;">
+      <ion-select-option value="yes">Yes</ion-select-option>
+      <ion-select-option value="no">No</ion-select-option>
+    </ion-select>
+
+
+
+    <ion-label position="floating">Stock Status </ion-label>
+    <ion-select name="availabile_stock_status" [(ngModel)]="availabile_stock_status" placeholder="Stock Status"
+      interface="action-sheet" style="padding:11px 25px !important;">
+      <ion-select-option value="available">AVAILABLE</ion-select-option>
+      <ion-select-option value="sold">SOLD OUT</ion-select-option>
+    </ion-select>
+
+
+    <!-- <ion-label position="floating">Pick at the Store </ion-label>
+    <ion-select placeholder="Pick at the Store" name="pick_store" [(ngModel)]="pick_store"
+      style="padding:11px 25px !important;">
+      <ion-select-option value="1">Yes</ion-select-option>
+      <ion-select-option value="0">No</ion-select-option>
+    </ion-select> -->
+
+    <!-- <ion-label position="floating">Best on Offket </ion-label>
+    <ion-select placeholder="Best on Offket" name="best_on_offket" [(ngModel)]="best_on_offket"
+      style="padding:11px 25px !important;">
+      <ion-select-option value="1">Yes</ion-select-option>
+      <ion-select-option value="0">No</ion-select-option>
+    </ion-select> -->
+
+    <ion-label position="floating">Offers Product</ion-label>
+    <ion-select placeholder="Offers" name="offers" [(ngModel)]="offers" style="padding:11px 25px !important;">
+      <ion-select-option value="1">Yes</ion-select-option>
+      <ion-select-option value="0">No</ion-select-option>
+    </ion-select>
+
+    <ion-label position="floating">Product Status</ion-label>
+    <ion-select placeholder="Product Status" name="product_status" [(ngModel)]="product_status"
+      style="padding:11px 25px !important;" (ionChange)="getProductStatus()">
+      <ion-select-option value="0">Buy now</ion-select-option>
+      <ion-select-option value="2">Call the Retailer</ion-select-option>
+      
+    </ion-select>
+
+
+    <!--  <ion-list>
+          <ion-radio-group [(ngModel)]="product_status" value="0">
+
+            <p class="spec_title">Product Status </p>
+        <ion-row>
+          <ion-col size="3">
+                <ion-item>
+                  <ion-label>Buy now</ion-label>
+                  <ion-radio value="0"></ion-radio>
+                </ion-item>
+          </ion-col>
+          <ion-col size="6">
+                <ion-item>
+                  <ion-label>Call the Retailer</ion-label>
+                  <ion-radio value="2"></ion-radio>
+                </ion-item>
+          </ion-col>
+          <ion-col size="3">
+                <ion-item>
+                  <ion-label>Both</ion-label>
+                  <ion-radio value="3"></ion-radio>
+                </ion-item>
+          </ion-col>
+        </ion-row>
+            
+
+            
+
+          </ion-radio-group>
+        </ion-list> -->
+  <div *ngIf="showstat">
+    <ion-label position="floating">Price Range *</ion-label>
+
+    <ion-row>
+    <ion-col>
+           <ion-input type="tel" size="6" name="start_price_range" [(ngModel)]="start_price_range" placeholder="Start"></ion-input>
+    </ion-col>
+    <ion-col>
+            <ion-input type="tel" size="6" name="end_price_range" [(ngModel)]="end_price_range" placeholder="End"></ion-input>
+    </ion-col>
+   </ion-row>
+   
+    
+  </div>
+ 
+
+
+    <ion-label position="floating">Variant Product </ion-label>
+    <ion-select placeholder="Select Variant Product" name="variant_product" [(ngModel)]="variant_product"
+      (ionChange)="getVariantProduct()" style="padding:11px 25px !important;">
+      <ion-select-option value="yes">Yes</ion-select-option>
+      <ion-select-option value="no">No</ion-select-option>
+    </ion-select>
+
+
+
+    <!-- <div *ngIf="variant==true">
+
+
+
+      <ion-label position="floating">Price </ion-label>
+      <ion-input name="price" [(ngModel)]="price" placeholder="Enter Price (Rs.)"></ion-input>
+
+      <ion-label position="floating">Sale Price </ion-label>
+      <ion-input name="sale_price" [(ngModel)]="sale_price" placeholder="Enter Sale Price (Rs.)"></ion-input>
+
+      <ion-label position="floating">Stock </ion-label>
+      <ion-input name="stock" [(ngModel)]="stock" placeholder="Enter Stock"></ion-input>
+
+      <p (click)="selectPictures()" class="selectimagecls">Upload Images <ion-icon name="image-outline" class="selecticon"></ion-icon>
+      </p>
+
+      <ion-grid *ngIf="images.length != 0">
+        <ion-col *ngFor="let image of images">
+          <img src="{{image}}" style="height: 50px;width:50px" />
+        </ion-col>
+      </ion-grid>
+
+    </div> -->
+
+
+    <ion-button (click)="doProduct()" style="--background: #eb445a;width: 47%;">Add Product</ion-button>
+
+
+
+    <!--   </form> -->
+  </div>
+</ion-content>

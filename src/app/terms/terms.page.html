@@ -1,0 +1,12 @@
+<ion-header>
+  <ion-toolbar style="--background: #05274d;color: #fff;">
+    <ion-back-button defaultHref slot="start"></ion-back-button>
+    <ion-title class="vendor-head">{{title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+	<p style="text-align: justify; padding: 10px;font-size:13px;" [innerHTML]="description | safeHtml"></p>
+
+</ion-content>

@@ -1,0 +1,116 @@
+<ion-header>
+	<ion-toolbar style="--background: #fff;color: #000;">
+		<ion-back-button defaultHref slot="start" *ngIf="page!='product'"></ion-back-button>
+		<button slot="end" class="productlist" *ngIf="page=='product'" routerLink="/vendor-dashboard/{{userId}}">Back</button>
+
+		<ion-title class="vendor-head">Link Variant</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-grid style="padding:0px;">
+		<table>
+			<tr>
+				<th>Attributes</th>
+				<th> Price</th>
+				<th>Stock</th>
+				<th>Images</th>
+				<th>Status</th>
+			</tr>
+          <tbody style="height: 100px;overflow-y: scroll;">
+			<tr *ngFor="let linkv of link_variants">
+				<td>
+					<div *ngFor="let attr of linkv.attributes">
+						<b>{{attr.type}} :</b> {{attr.value}}
+					</div>
+				</td>
+				<td style="font-size:12px;">
+					<div *ngIf="product_status=='no'">
+						Price : {{linkv.price}}<br>
+						Sale : {{linkv.saleprice}}<br>
+					</div>
+					<div *ngIf="product_status=='no'" (click)="updatePrice(linkv.id,linkv.price,linkv.saleprice,linkv.stock)" class="updatebtn">Update Price</div>
+				</td>
+				<td> {{linkv.stock}}
+					<div *ngIf="linkv.price!=''" (click)="updateStock(linkv.id)" class="updatebtn">Update Stock</div>
+				</td>
+				<td>
+					{{linkv.images_count}}
+					<div (click)="productImages(linkv.id,linkv.product_id,linkv.clone_status)" class="updatebtn">Add Images</div>
+				</td>
+				<td (click)="changeStatus(linkv.status,linkv.id)">
+					<div> <!--class="updatebtn"-->
+ 						{{linkv.statusname}}
+					</div>
+				</td>
+
+			</tr>
+</tbody>
+
+		</table>
+
+	</ion-grid>
+
+
+
+
+
+
+</ion-content>
+
+
+<!-- <ion-row style="background-color: #f47a20">
+	<ion-col>
+		Attributes
+	</ion-col>
+	<ion-col>
+		Price
+	</ion-col>
+	<ion-col>
+		Stock
+	</ion-col>
+	<ion-col>
+		Images
+	</ion-col>
+	<ion-col>
+		Status
+	</ion-col>
+</ion-row>
+<ion-row *ngFor="let linkv of link_variants">
+
+	<ion-col *ngFor="let attr of linkv.attributes">
+		<b>{{attr.type}} :</b> {{attr.value}}
+	</ion-col>
+	<ion-col>
+		<div>
+			<b>Price : </b>{{linkv.price}}<br>
+			<b>Sale Price : </b>{{linkv.saleprice}}<br>
+		</div>
+		<div *ngIf="linkv.price==''" (click)="updatePrice(linkv.id)">Update Price</div>
+	</ion-col>
+	<ion-col>
+		{{linkv.stock}}
+		<div (click)="updateStock(linkv.id)">Update Stock</div>
+	</ion-col>
+
+	<ion-col>
+		{{linkv.images_count}}
+		<div (click)="productImages(linkv.id,linkv.product_id)">Add Images</div>
+	</ion-col>
+
+	<ion-col (click)="changeStatus(linkv.status,linkv.id)">
+
+		{{linkv.statusname}}
+	</ion-col>
+</ion-row> -->
+
+<style>
+	.updatebtn {
+		color: #fff;
+		background: #05274d;
+		font-size: 7px;
+		/* border: 1px solid #b9b3b3; */
+		padding: 3px;
+		border-radius:10px;
+	}
+</style>

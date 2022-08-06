@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+  	<ion-back-button defaultHref slot="start"></ion-back-button>
+    <ion-title>Edit Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+		 <ion-item>
+		  <ion-label position="fixed">Name</ion-label>
+		  <ion-input type="text" [(ngModel)]="name" name="name"></ion-input>
+		</ion-item>
+		<ion-item>
+		  <ion-label position="fixed">Email</ion-label>
+		  <ion-input type="email" [(ngModel)]="email" name="email" readonly></ion-input>
+		</ion-item>
+		<ion-item>
+		  <ion-label position="fixed">Mobile</ion-label>
+		  <ion-input type="tel" [(ngModel)]="mobile" name="mobile" readonly></ion-input>
+		</ion-item>
+
+		
+		<ion-item>
+		  <ion-label position="fixed">Address</ion-label>
+		  <ion-textarea [(ngModel)]="address" name="address" clearOnEdit="true"></ion-textarea>
+		</ion-item> 
+
+		<ion-row>
+      <ion-col class="ion-text-center">
+
+        <ion-button color="info"  (click)="doupdateprofile()">Update</ion-button>
+      </ion-col>
+    </ion-row>
+
+
+</ion-content>
+
+
+
+
+

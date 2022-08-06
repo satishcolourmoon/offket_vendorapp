@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar style="--background: #f47a20;color: #fff;">
+    <ion-back-button defaultHref slot="start"></ion-back-button>
+    <ion-title>Add Your Product</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="addproductContainer">
+    <form>
+
+      <ion-input name="product_name" placeholder="Enter Product Name"></ion-input>
+
+
+      <ion-select placeholder="Select Brand" name="brand">
+        <ion-select-option value="brown">Nike</ion-select-option>
+        <ion-select-option value="blonde">Under Armour</ion-select-option>
+        <ion-select-option value="black">Fossil</ion-select-option>
+        <ion-select-option value="red">Others</ion-select-option>
+      </ion-select>
+
+      <ion-select placeholder="Select Category" name="category">
+        <ion-select-option value="brown">Men</ion-select-option>
+        <ion-select-option value="blonde">Women</ion-select-option>
+        <ion-select-option value="black">Kids</ion-select-option>
+      </ion-select>
+
+      <ion-select placeholder="Select Sub Category" name="subcategory">
+        <ion-select-option value="brown">Shoes</ion-select-option>
+        <ion-select-option value="blonde">Dress</ion-select-option>
+        <ion-select-option value="black">T-shirts</ion-select-option>
+        <ion-select-option value="red">Bottom Wears</ion-select-option>
+      </ion-select>
+
+      <ion-input name="price" placeholder="Enter Price (Rs.)"></ion-input>
+
+      <ion-input name="sale_price" placeholder="Enter Sale Price (Rs.)"></ion-input>
+
+      <ion-textarea rows="6" cols="20" name="description" placeholder="Description"></ion-textarea>
+
+
+      <div style="background-color: #f1f1f1;margin-bottom: 15px;">
+        <h4 style="color: #838181;">Images</h4>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="4">
+              <div (click)="selectImage('image1')" class="images" style="background-image:url({{image1}});">
+                <div style="padding: 40px;text-align: center;">
+                  <ion-icon name="add"></ion-icon>
+                </div>
+              </div>
+            </ion-col>
+            <ion-col size="4">
+              <div (click)="selectImage('image2')" class="images" style="background-image:url({{image2}});">
+                <div style="padding: 40px;text-align: center;">
+                  <ion-icon name="add"></ion-icon>
+                </div>
+              </div>
+            </ion-col>
+            <ion-col size="4">
+              <div (click)="selectImage('image3')" class="images" style="background-image:url({{image3}});">
+                <div style="padding: 40px;text-align: center;">
+                  <ion-icon name="add"></ion-icon>
+                </div>
+              </div>
+            </ion-col>
+            <ion-col size="4">
+              <div (click)="selectImage('image4')" class="images" style="background-image:url({{image4}});">
+                <div style="padding: 40px;text-align: center;">
+                  <ion-icon name="add"></ion-icon>
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+      </div>
+      <ion-select placeholder="Status" interface="action-sheet">
+        <ion-select-option value="brown">Active</ion-select-option>
+        <ion-select-option value="blonde">InActive</ion-select-option>
+      </ion-select>
+      <ion-button (click)="doProduct()">Add Product</ion-button>
+
+
+
+    </form>
+  </div>
+
+
+
+
+</ion-content>

@@ -1,0 +1,87 @@
+<ion-header [translucent]="true">
+  <ion-toolbar style="--background: #f47a20;color: #fff;">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Visual Merchant Dashboard
+    </ion-title>
+    <!-- <ion-icon name="power" slot="end" class="signout" (click)="logout()"></ion-icon> -->
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+    <ion-card style="border: 1px solid #c2bbbb;outline:none">
+<ion-card-content style="padding: 15px;">
+  <ion-row>
+        <ion-col size="4" style="text-align: center; border: 1px solid #ccc; padding:10px; color: #f47a20">
+          <b>Today Orders<br> </b><span style="color: #000;">{{dashboard?.today_orders}}</span>
+        </ion-col>
+        <ion-col size="4" style="text-align: center; border: 1px solid #ccc; padding:10px; color: #f47a20">
+          <b>Total Orders<br> </b><span style="color: #000;">{{dashboard?.total_orders}}</span>
+        </ion-col>
+        
+        <ion-col size="4" style="text-align: center; border: 1px solid #ccc; padding:10px; color: #f47a20">
+          <b>Total Stores<br> </b><span style="color: #000;">{{dashboard?.total_stores}}</span>
+        </ion-col>
+        
+   </ion-row>
+
+
+</ion-card-content>
+</ion-card>
+
+
+  <h5 *ngIf="shops.length>0"
+    style="padding:0px;margin: 5px 0px 5px 12px;color: #091a21;font-size: 16px;font-weight: 600;">{{shops_count}} Shops </h5>
+  <ion-card *ngFor="let shop of shops" (click)="viewShop(shop.id)"
+    style="box-shadow: 0px 2px 8px 3px #e2e2e2;border-radius: 15px;">
+    <ion-card-content style="padding: 2px;">
+      <ion-row>
+        <ion-col size="4">
+          <img src="{{shop.shop_logo}}" alt="" class="shop_logo">
+        </ion-col>
+        <ion-col size="8" class="vendorlist">
+          <h2 style="color:#000;font-size: 20px;">{{shop.shop_name}}</h2>
+          <h5>{{shop.city}}</h5>
+          <p>{{shop.mobile}}</p>
+          <ion-icon class="arrowright" name="arrow-forward-circle-outline"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+  <div *ngIf="shops.length==0">
+    <h5 style="padding:0px;margin: 5px 0px 5px 12px;color: #091a21;font-size: 16px;font-weight: 600; text-align: center; margin: 20px;">No Shops Found </h5>
+    <!-- <ion-card *ngFor="let s of [1,2,3,4,5]" style="box-shadow: 0px 2px 8px 3px #e2e2e2;border-radius: 15px;">
+      <ion-card-content style="padding: 2px;">
+        <ion-row>
+          <ion-col size="4">
+            <ion-thumbnail>
+              <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-thumbnail>
+          </ion-col>
+          <ion-col size="8">
+            <h2 style="color:#000">
+              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+            </h2>
+            <p>
+              <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            </p>
+            <p>
+              <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card> -->
+  </div>
+
+  <!-- <ion-card *ngFor="let shop of shops" (click)="viewShop(shop.id)" style="outline:none">
+    <ion-card-content>
+      <img src="{{shop.shop_logo}}" alt="" class="shop_logo">
+      <h2 style="text-align: center;">{{shop.shop_name}}</h2>
+    </ion-card-content>
+  </ion-card> -->
+</ion-content>

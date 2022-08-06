@@ -1,0 +1,43 @@
+<!-- <ion-header [translucent]="true" style="background-color:#000;">
+	<ion-toolbar style="--background: #000;color: #fff;">
+		<ion-buttons slot="start">
+			<ion-back-button defaultHref="home"></ion-back-button>
+		</ion-buttons>
+		<ion-title>{{title}}</ion-title>
+	</ion-toolbar>
+
+</ion-header> -->
+
+<ion-content style="--background: #000;">
+	<ion-grid style="padding:20px">
+		<ion-row class="plan">
+			 <h5>Get Offket {{title}}</h5>
+			 <div style="width: 100%;margin-bottom: 20px;" *ngIf="pid==1">
+				<img src="assets/images/icon_3.png" style="margin: auto;display: block;">
+			 </div>	
+			 <div style="width: 100%;margin-bottom: 20px;" *ngIf="pid==2">
+				<img src="assets/images/icon.png" style="margin: auto;display: block;">
+			 </div>	
+			 <div style="width: 100%;margin-bottom: 20px;" *ngIf="pid==3">
+				<img src="assets/images/icon_2.png" style="margin: auto;display: block;">
+			 </div>		
+			 <ion-col size="4" *ngFor="let p of plans; let i=index">
+				  <div  [ngClass]="{'planlist1':p.id==check,'planlist':p.id!=check}" (click)="planlist(p)">
+                     <!-- <h6>12</h6> -->
+					 <p>{{p.title}}</p>
+					 <h4>&#8377; {{p.amount}}</h4>
+					 <h5  style="color: #000; text-decoration: line-through;">&#8377; {{p.offerprice}}</h5>
+				  </div>
+			 </ion-col>
+		</ion-row>
+		<h4 style="color: #fff;font-size: 17px;font-weight: 600;">
+			Features
+		</h4>
+	
+		<div class="feauters">
+          <p style="font-size: 14px;" [innerHTML]="description">
+			</p>
+			<ion-button (click)="buyNow(check,amount)">Pay Now</ion-button>
+		</div>
+	</ion-grid>
+</ion-content>

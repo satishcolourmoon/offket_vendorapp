@@ -1,0 +1,21 @@
+.sidemenuToolbar{
+    // --background: #f4791f;
+    // --background: linear-gradient(#b65c18 , #f4791f);
+    //--background:#05274d;
+    // height: 150px;
+    // padding: 10px 10px;
+}
+.header-md::after {
+    background-image:none;
+}
+.sidemenu{
+    padding: 0px;
+    ion-icon{
+        color:#f4791f;
+    }
+}
+.logo_white{
+    width: 70%;
+    margin: auto;
+    display: block;
+}

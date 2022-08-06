@@ -1,0 +1,66 @@
+/* Custom Skeleton Line Height and Margin */
+.custom-skeleton ion-skeleton-text {
+    line-height: 13px;
+  }
+  
+  .custom-skeleton ion-skeleton-text:last-child {
+    margin-bottom: 5px;
+  }
+
+  .profilecard {
+    box-shadow: 0px 2px 5px 3px #e2e2e2;
+    border-radius: 15px;
+    padding: 5px 2px;
+    margin-top: 10px;
+    outline: none;
+    img {
+       width: 100%;
+    }
+    h4 {
+        font-size: 18px;
+    color: #655d5d !important;
+    font-weight: 600;
+    margin-left: 12px;
+    }
+ }
+
+ .emptybox {
+  margin-top: 20%;
+  img {
+     width: 70%;
+     margin: auto;
+     display: block;
+  }
+  h2 {
+   text-align: center;
+   color: #ff6b00bf;
+   font-weight: 600;
+   margin-top: 10%;
+  }
+}
+
+.div_logo{
+        width: 100%;
+        // height: 30vh;
+        position: relative;
+
+        height: 100px;
+        margin-top: 25%;
+
+        .img_logo{
+            width: 220px;
+            position: absolute;
+            left: 50%;
+            top: 40%;
+            transform: translate(-50%,-50%);
+        }
+    }
+
+    .vendor-head{
+      font-size:16px;
+      font-weight:600;
+      padding-inline:0px;
+  }
+  .sharebtn{
+    color:#fff;--background:#081f65;--border-radius:15px;width:43%;
+  }

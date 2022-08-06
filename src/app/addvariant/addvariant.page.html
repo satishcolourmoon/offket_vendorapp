@@ -1,0 +1,100 @@
+<ion-header>
+	<ion-toolbar style="--background: #fff;color: #000;">
+
+		<ion-back-button defaultHref slot="start" *ngIf="page!='product'"></ion-back-button>
+		<button slot="start" class="productlist" *ngIf="page=='product'" routerLink="/vendor-dashboard/{{userId}}">Back</button>
+		<ion-title class="vendor-head">Variant</ion-title>
+		<!-- <button (click)="goProducts()" slot="end" class="productlist">Products</button> -->
+		<button *ngIf="add_variant" (click)="addVariant()" slot="end" class="productlist">Add Variant</button>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div *ngIf="createvariant_status==true" class="addvariantbox">
+		<h3>Add Variant</h3>
+		<ion-select placeholder="Select Types" name="att_types" [(ngModel)]="att_types" interface="popover" (ionChange)="getAttrValues()">
+			<ion-select-option value="{{at.id}}" *ngFor="let at of attr_types">{{at.title}}</ion-select-option>
+		</ion-select>
+
+		<ion-select placeholder="Select Values" name="attrib_value" [(ngModel)]="attrib_value" interface="popover" multiple="true">
+			<ion-select-option value="{{av.id}}" *ngFor="let av of attr_values">{{av.value}}</ion-select-option>
+		</ion-select>
+		<button (click)="createVariants()">Save</button>
+	</div>
+	<div *ngIf="updateariant_status==true" class="addvariantbox">
+		<h3>Update Variant</h3>
+		<ion-input type="hidden" name="vid" [(ngModel)]="vid"></ion-input>
+		
+		<ion-select placeholder="Select Types" name="edit_att_types" [(ngModel)]="edit_att_types" interface="popover" (ionChange)="getAttrValues()">
+			<ion-select-option  *ngFor="let at of attr_types" value="{{at.id}}">{{at.title}}</ion-select-option>
+		</ion-select>
+
+
+		
+
+		<ion-select placeholder="Select Values" name="edit_attrib_value" [(ngModel)]="edit_attrib_value" interface="popover" multiple="true">
+			<ion-select-option value="{{av.id}}" *ngFor="let av of attr_values">{{av.value}}</ion-select-option>
+		</ion-select>
+		<button (click)="updateVariants()">Update</button>
+	</div>
+
+
+
+	<ion-grid style="padding:0px 0px 0px 0px;">
+		<ion-col *ngIf="!add_variant" (click)="addVariant()" size="12" style="padding-top:10px;width: 100%;color:#081f65;text-align:center;display:block;margin-bottom:4%;">
+			<!-- <button (click)="addVariant()" class="addvariant"> -->
+				<span style="font-size:18px;">+</span>Add Variant
+				<!-- <ion-icon name="add-circle-outline"></ion-icon> -->
+			<!-- </button> -->
+		</ion-col>
+		<ion-row>
+			<ion-col size="12" style="padding:0px;">
+				<table>
+					<tr>
+						<th>Product</th>
+						<th> Types</th>
+						<th>Values</th>
+						<!-- <th>Action</th> -->
+					</tr>
+					<tr *ngFor="let variant of variant_list">
+						<td>{{variant.product}}</td>
+						<td>{{variant.attribute_type}}</td>
+						<td>{{variant.attribute_values}}</td>
+						<!-- <td>
+							<button class="editbtn"
+								(click)="editVariant(variant.id,variant.attribute_type_id,variant.attribute_values_ids)">
+								<ion-icon name="create-outline"></ion-icon>
+							</button>
+							<button class="deletebtn" (click)="deleteVariant(variant.id)">
+								<ion-icon name="trash-outline"></ion-icon>
+							</button>
+						</td> -->
+					</tr>
+				</table>
+			</ion-col>
+		</ion-row>
+
+	</ion-grid>
+</ion-content>
+
+
+
+<!-- <ion-row *ngFor="let variant of variant_list">
+	<ion-col>
+		{{variant.product}}
+	</ion-col>
+	<ion-col>
+		{{variant.attribute_type}}
+	</ion-col>
+	<ion-col>
+		{{variant.attribute_values}}
+	</ion-col>
+	<ion-col>
+		<ion-button (click)="editVariant(variant.id,variant.attribute_type_id,variant.attribute_values_ids)">
+			<ion-icon name="create-outline"></ion-icon>
+		</ion-button>
+		<ion-button (click)="deleteVariant(variant.id)">
+			<ion-icon name="trash-outline"></ion-icon>
+		</ion-button>
+	</ion-col>
+</ion-row> -->

@@ -1,0 +1,149 @@
+<ion-header>
+  <ion-toolbar style="--background: #fff;color: black;">
+    <ion-back-button defaultHref slot="start"></ion-back-button>
+    <ion-title class="vendor-head">{{productdetails?.shop}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	
+	<!-- 	<ion-slides >
+        <ion-slide *ngFor="let img of productdetails?.imageslist">
+          <img src="{{img.image}}">
+        </ion-slide>
+       
+       
+      </ion-slides> -->
+      <!-- <ion-slides #slides pager="false">
+			<ion-slide *ngFor="let img of productdetails?.imageslist">
+				
+					<ion-row>
+						<ion-col size="12" class="productimageslider">
+							<img [src]="img.image">
+						</ion-col>
+					</ion-row>
+			</ion-slide>	
+		</ion-slides> -->
+	<ion-card style="border-radius:15px;">
+		<ion-card-content style="color:black;">
+			<ion-grid>
+		
+				<ion-row> <!--class="productborder"-->
+				  <ion-col align='left'>
+					<div style="font-size:13px;">
+					  <b>Product Name</b>
+					</div>
+				  </ion-col>
+				  <ion-col align='right'>
+					<div>
+					 {{productdetails?.name}}
+					</div>
+				  </ion-col>
+				  
+				</ion-row>
+	  
+				 <ion-row> <!--class="productborder"-->
+				  <ion-col align='left'>
+					<div style="font-size:13px;">
+					  <b>Description</b>
+					</div>
+				  </ion-col>
+				  <ion-col align='right'>
+					<div>
+						<p style="text-align: justify; padding: 10px;font-size:13px;" [innerHTML]="productdetails?.description | safeHtml"></p>
+					 <!-- {{productdetails?.description}} -->
+					</div>
+				  </ion-col>
+				  
+				</ion-row>
+	  
+				<ion-row> <!--class="productborder"-->
+				  <ion-col align='left'>
+					<div style="font-size:13px;">
+					  <b>Category</b>
+					</div>
+				  </ion-col>
+				  <ion-col align='right'>
+					<div>
+					 {{productdetails?.category_name}}
+					</div>
+				  </ion-col>
+				  
+				</ion-row>
+	  
+				<ion-row> <!--class="productborder"-->
+				  <ion-col align='left'>
+					<div style="font-size:13px;">
+					  <b>Sub Category</b>
+					</div>
+				  </ion-col>
+				  <ion-col align='right'>
+					<div>
+					 {{productdetails?.subcategory_name}}
+					</div>
+				  </ion-col>
+				  
+				</ion-row>
+				 <ion-row> <!--class="productborder"-->
+				  <ion-col align='left'>
+					<div style="font-size:13px;">
+					  <b>Brand</b>
+					</div>
+				  </ion-col>
+				  <ion-col align='right'>
+					<div>
+					 {{productdetails?.brand}}
+					</div>
+				  </ion-col>
+				  
+				</ion-row>
+	  
+				<ion-row> <!--class="productborder"-->
+				  <ion-col align='left'>
+					<div style="font-size:13px;">
+					  <b>Product Tags</b>
+					</div>
+				  </ion-col>
+				  <ion-col align='right'>
+					<div>
+					 {{productdetails?.product_tags}}
+					</div>
+				  </ion-col>
+				  
+				</ion-row>
+	  
+				 <ion-row> <!--class="productborder"-->
+				  <ion-col align='left'>
+					<div style="font-size:13px;">
+					  <b>Key Features</b>
+					</div>
+				  </ion-col>
+				  <ion-col align='right'>
+					<div>
+						<p style="text-align: justify; padding: 10px;font-size:13px;" [innerHTML]="productdetails?.key_features | safeHtml"></p>
+					<!--  {{productdetails?.key_features}} -->
+					</div>
+				  </ion-col>
+				  
+				</ion-row>
+				
+				<ion-row> <!--class="productborder"-->
+				  <ion-col align='left'>
+					<div style="font-size:13px;">
+					  <b>Return Availability</b>
+					</div>
+				  </ion-col>
+				  <ion-col align='right'>
+					<div>
+					 {{productdetails?.return_status}}
+					</div>
+				  </ion-col>
+				  
+				</ion-row>
+	  
+	  		  </ion-grid>
+		</ion-card-content>
+	</ion-card>
+	
+
+</ion-content>

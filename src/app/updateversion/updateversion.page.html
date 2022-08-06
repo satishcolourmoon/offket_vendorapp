@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar class="header">
+    <ion-title style="text-align: center;">Update App</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div style="margin-top: 20%;">
+    <button class="updatebtn" (click)="updateapp()"> Update </button>
+  </div>
+  <p class="version"> Current version is out dated. Please update to latest version</p>
+</ion-content>
+
+<style>
+  .updatebtn {
+    outline: none;
+    font-size: 20px;
+    padding: 10px 20px;
+    background: #ff6ab5;
+    margin: auto;
+    display: block;
+    color: #fff;
+    border-radius: 7px;
+  }
+
+  .version {
+    font-size: 16px;
+    text-align: center;
+    color: #034f6b;
+    font-weight: 600;
+    margin: 15px 30px;
+  }
+</style>

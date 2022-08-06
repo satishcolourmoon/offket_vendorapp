@@ -1,0 +1,35 @@
+.vendor-head{
+    font-size:16px;
+    font-weight:600;
+    padding-inline:0px;
+ }
+.addproductContainer{
+    padding:15px;
+
+    ion-input,  ion-select, ion-textarea,ion-datetime{
+        margin-bottom: 15px;
+        border: 1px solid #bebdbcd4;
+        // border-radius: 7px;
+        padding: 5px 10px !important;
+        background: #fbfafa45;
+        border-radius:20px;
+        font-size:13px;
+        outline:none;
+    }
+    ion-button{
+            --background: #081f65;
+            width: 50%;
+            margin: 10px auto;
+            display: block;
+            --border-radius:15px;
+            outline:none;
+            height:40px;
+    }
+    .images{
+        background-color: #ccc;
+        background-size:cover;
+        background-repeat:no-repeat;
+        border-radius: 10px;
+    }
+    
+}

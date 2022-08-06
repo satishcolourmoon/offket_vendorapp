@@ -1,0 +1,76 @@
+<!-- <ion-header>
+  <ion-toolbar style="--background: #f47a20;color: #fff;">
+    <ion-title>Update Price</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <div class="addvariantbox">
+
+          <ion-label style="font-size: 14px;font-weight: 600;margin-bottom: 10px;">Price</ion-label>
+          <ion-input type="text" id="price" [(ngModel)]="price" name="price" clear-input placeholder="*price">
+          </ion-input>
+
+
+          <ion-label style="font-size: 14px;font-weight: 600;margin-bottom: 10px;">Sale Price</ion-label>
+          <ion-input type="text" id="saleprice" [(ngModel)]="saleprice" name="saleprice" clear-input
+            placeholder="*Sale Price"></ion-input>
+
+
+          <ion-label style="font-size: 14px;font-weight: 600;margin-bottom: 10px;">Stock</ion-label>
+          <ion-input type="text" id="stock" [(ngModel)]="stock" name="stock" clear-input placeholder="*Stock">
+          </ion-input>
+          <div style="text-align: center;"> <button small (click)="updatePrice()">Update Price</button>
+            <button small (click)="dismiss()">Close</button>
+
+          </div>
+
+        </div>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+
+</ion-content> -->
+
+<ion-content style="--background: transparent">
+  <div class="modalbox1">
+    <ion-grid style="padding: 0;">
+      <ion-row>
+        <ion-col size="12" class="acceptmodal">
+          <h4>OTP Verifcation From 
+          </h4>
+        </ion-col>
+        <ion-col size="12" style="padding: 10px 15px;">
+
+            <ion-list>
+              <ion-input type="text" placeholder="Enter OTP" [(ngModel)]="otp" id="otp" name="otp"  clearInput ></ion-input>
+            </ion-list>
+
+      
+          <div style="text-align: center;margin-top: 4%;"> <button small (click)="verifyOTP()">Verify</button>
+            <button small (click)="dismiss()">Close</button>
+
+          </div>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+</ion-content>
+
+<style>
+  button {
+    color: #fff;
+    margin: 5px;
+    background: #081f65;
+    padding:10px;
+    border-radius: 15px;
+    outline:none;
+  }
+</style>

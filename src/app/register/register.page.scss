@@ -1,0 +1,83 @@
+.div_content{
+    .div_logo{
+        width: 100%;
+        // height: 30vh;
+        position: relative;
+
+        height: 100px;
+        margin-top: 20%;
+
+        .img_logo{
+            width: 220px;
+            position: absolute;
+            left: 50%;
+            top: 40%;
+            transform: translate(-50%,-50%);
+        }
+    }
+    width: 100%;
+    height: 65vh;
+    .div_primary_text{
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+    
+        .div_inner{
+            margin-top: 20px;
+            height: 50px;
+            width: 100%;
+            border-radius: 20px;
+            // background-color: #eeeeef;
+            position: relative;
+            border: 1px solid #fff;
+           color: #05274d;
+    background: #e8f0fe;
+    
+            .img_user{
+                width: 15px;
+                position: absolute;
+                left: 5%;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            .in{
+                position: absolute;
+                width: 90%;
+                left: 5%;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 19px;
+                letter-spacing:1px;
+            }
+        }
+        .div_btn{
+            width: 100%;
+            margin-top: 20px;
+            position: relative;
+
+            .btn_login{
+                color: white;
+                --background: #e44424;
+                height: 55px;
+                font-size: 21px;
+                width: 65%;
+                text-transform: none;
+                --border-radius: 25px;
+                letter-spacing:1px;
+            }
+        }
+    }
+}
+.account{
+    margin-top: 30px;
+    color: white;
+    margin-bottom: 0px;
+    letter-spacing:1px;
+}
+.create{
+    margin-top: 7px;
+    color: #e44424;
+    letter-spacing:1px;
+}
+
+span{ color: red; }

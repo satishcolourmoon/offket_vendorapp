@@ -1,0 +1,97 @@
+<ion-header>
+	<ion-toolbar style="--background: #05274d;color: #fff;">
+		<ion-back-button defaultHref slot="start"></ion-back-button>
+		<ion-title class="vendor-head">Request Payments</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+
+
+	<ion-grid style="padding:0px;">
+		
+		<ion-row class="ion-text-center">
+			<ion-col siz="12">
+				<p>Total Payment {{total_payment}}</p>
+			</ion-col>
+		</ion-row>
+		<ion-row class="ion-text-center">
+			<ion-col siz="12">
+				<ion-button color="success" (click)="requestPay(total_payment)" >Request Payment</ion-button>
+			</ion-col>
+		</ion-row>
+		
+		 <ion-row style="margin-top: 4%;">
+			<ion-col siz="12" style="padding:0px;">
+				<table>
+					<tr>
+						<th><small>Requested <br>Amount</small></th>
+						<th><small>Payment <br>Details</small></th>
+						<th><small>Status</small></th>
+						<th><small>Date</small></th>
+						<th><small>Action</small></th>
+					</tr>
+					<tr *ngFor="let rl of request_list" style="font-size: 13px;">
+						<td>{{rl.request_amount}}</td>
+						
+						<td>
+							<div *ngIf="rl.mode_payment=='online'">
+									 <p><b>Payment:</b>{{rl.mode_payment}}</p>
+                                     <p><b>TnxID :</b>{{rl.transaction_id}}</p>
+                                     <p><b>Image :</b> <img src="{{rl.image}}" style="width: 100%; height: 60px;"></p>
+							</div>
+							<div *ngIf="rl.mode_payment=='offline'">
+									 <p><b>Payment :</b>{{rl.mode_payment}}</p>
+                                     <p><b>Sender :</b>{{rl.sender_name}}</p>
+                                     <p><b>Receiver :</b>{{rl.receiver_name}}</p>
+							</div>
+							<p><b>Description :</b>{{rl.admin_description}}</p>
+                            <p><b>Payment Date :</b>{{rl.updated_at}}</p>
+
+						</td>
+						<td>{{rl.status}}</td>
+						<td>{{rl.created_at}}</td>
+						
+						<td>
+							<div *ngIf="rl.del_stats==0">
+								<ion-icon name="trash-outline" style="color: red;" (click)="deleteRequest(rl.id)"></ion-icon>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</ion-col>
+		</ion-row> 
+		
+	</ion-grid>
+</ion-content>
+
+
+
+<!-- <ion-row *ngFor="let variant of variant_list">
+	<ion-col>
+		{{variant.product}}
+	</ion-col>
+	<ion-col>
+		{{variant.attribute_type}}
+	</ion-col>
+	<ion-col>
+		{{variant.attribute_values}}
+	</ion-col>
+	<ion-col>
+		<ion-button (click)="editVariant(variant.id,variant.attribute_type_id,variant.attribute_values_ids)">
+			<ion-icon name="create-outline"></ion-icon>
+		</ion-button>
+		<ion-button (click)="deleteVariant(variant.id)">
+			<ion-icon name="trash-outline"></ion-icon>
+		</ion-button>
+	</ion-col>
+</ion-row> -->

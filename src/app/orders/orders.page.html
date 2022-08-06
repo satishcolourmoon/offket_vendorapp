@@ -1,0 +1,283 @@
+<ion-header>
+  <ion-toolbar style="--background: #05274d;color: #fff;">
+    <ion-menu-button defaultHref slot="start"></ion-menu-button>
+    <ion-title>Orders</ion-title>
+  </ion-toolbar>
+  <ion-segment scrollable [(ngModel)]="selectOrder" name="selectOrder">
+    <ion-segment-button value="pending" (click)="showOrder('neworder')">
+      <ion-icon name="reader-outline" style="margin: 4px;"></ion-icon>
+      New Orders
+    </ion-segment-button>
+    <ion-segment-button value="processing" (click)="showOrder('processing')">
+      <ion-icon name="ellipsis-horizontal-circle-outline" style="margin: 4px;"></ion-icon>
+      Processing
+    </ion-segment-button>
+    <ion-segment-button value="intransit" (click)="showOrder('intransit')">
+      <ion-icon name="ellipsis-horizontal-circle-outline" style="margin: 4px;"></ion-icon>
+      In-Transit
+    </ion-segment-button>
+    <ion-segment-button value="completed" (click)="showOrder('completed')">
+      <ion-icon name="checkmark-circle" style="margin: 4px;"></ion-icon>
+      History
+    </ion-segment-button>
+  </ion-segment>
+</ion-header>
+
+<ion-content>
+<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <!-- <div  >
+    <div>
+    <ion-card >
+      <ion-card-content >
+        <ion-row (click)="goOrderDetails(ord.id)">
+          <ion-col class="orderInfoKey">OrderId</ion-col>
+          <ion-col style="text-align:right;">#4445555</ion-col>
+        </ion-row>
+        <ion-row (click)="goOrderDetails(ord.id)">
+          <ion-col class="orderInfoKey">Order Date</ion-col>
+          <ion-col style="text-align:right;">23-09-2034</ion-col>
+        </ion-row>
+        <ion-row (click)="goOrderDetails(ord.id)">
+          <ion-col class="orderInfoKey">Payment Type</ion-col>
+          <ion-col style="text-align:right;">online</ion-col>
+        </ion-row>
+        <ion-row (click)="goOrderDetails(ord.id)">
+          <ion-col class="orderInfoKey">Payment Status</ion-col>
+          <ion-col style="text-align:right;">frttg</ion-col>
+        </ion-row>
+        <ion-row (click)="goOrderDetails(ord.id)">
+          <ion-col class="orderInfoKey">Order Status</ion-col>
+          <ion-col style="text-align:right;">active</ion-col>
+        </ion-row>
+        <ion-row (click)="goOrderDetails(ord.id)">
+          <ion-col class="orderInfoKey">Amount</ion-col>
+          <ion-col style="text-align:right;">&#8377;55555</ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="2"></ion-col>
+          <ion-col size="4">
+            <ion-button color="secondary" (click)="aceptOrder(ord.id)">Accept</ion-button>
+          </ion-col>
+
+          <ion-col size="4">
+            <ion-button  color="danger" (click)="cancelOrder(ord.id)">Cancel</ion-button>
+          </ion-col>
+          <ion-col size="2"></ion-col>
+     </ion-row>
+      </ion-card-content>
+    </ion-card>
+    </div>
+  </div> -->
+
+  <div  *ngIf="new_order==true">
+    <div *ngIf="no_neworders1==true">
+    <ion-card *ngFor="let ord of orders" >
+      <ion-card-content >
+        <ion-row (click)="goOrderDetails(ord.id)">
+          <ion-col class="orderInfoKey">OrderId</ion-col>
+          <ion-col style="text-align:right;">{{ord.id}}</ion-col>
+        </ion-row>
+        <ion-row (click)="goOrderDetails(ord.id)">
+          <ion-col class="orderInfoKey">Order Date</ion-col>
+          <ion-col style="text-align:right;">{{ord.created_date}}</ion-col>
+        </ion-row>
+        <ion-row (click)="goOrderDetails(ord.id)">
+          <ion-col class="orderInfoKey">Payment Type</ion-col>
+          <ion-col style="text-align:right;">{{ord.payment_type}}</ion-col>
+        </ion-row>
+        <ion-row (click)="goOrderDetails(ord.id)">
+          <ion-col class="orderInfoKey">Payment Status</ion-col>
+          <ion-col style="text-align:right;">{{ord.payment_status}}</ion-col>
+        </ion-row>
+        <ion-row (click)="goOrderDetails(ord.id)">
+          <ion-col class="orderInfoKey">Order Status</ion-col>
+          <ion-col style="text-align:right;">{{ord.service_status}}</ion-col>
+        </ion-row>
+        <ion-row (click)="goOrderDetails(ord.id)">
+          <ion-col class="orderInfoKey">Amount</ion-col>
+          <ion-col style="text-align:right;">&#8377;{{ord.amount}}</ion-col>
+        </ion-row>
+        <ion-row *ngIf="ord.is_store=='yes'">
+          <ion-col class="orderInfoKey">Pick Up the Store</ion-col>
+          <ion-col style="text-align:right;">{{ord.is_store}}</ion-col>
+        </ion-row>
+
+        
+
+        <ion-row>
+          <ion-col size="2"></ion-col>
+          <ion-col size="4">
+            <ion-button color="secondary" (click)="aceptOrder(ord.id)">Accept</ion-button>
+          </ion-col>
+
+          <ion-col size="4">
+            <ion-button  color="danger" (click)="cancelOrder(ord.id)">Cancel</ion-button>
+          </ion-col>
+          <ion-col size="2"></ion-col>
+     </ion-row>
+      </ion-card-content>
+    </ion-card>
+    </div>
+     <ion-card *ngIf="no_neworders1==false">
+         <h3 style="text-align: center;color: #e44424;font-size:16px;">No Orders</h3>
+    </ion-card>
+  </div>
+
+   <div *ngIf="processing_order==true">
+    <div *ngIf="no_processingorders1==true">
+    <ion-card *ngFor="let pord of process_orders">
+      <ion-card-content>
+        <ion-row>
+          <ion-col class="orderInfoKey">OrderId</ion-col>
+          <ion-col style="text-align:right;">{{pord.id}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="orderInfoKey">Order Date</ion-col>
+          <ion-col style="text-align:right;">{{pord.created_date}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="orderInfoKey">Payment Type</ion-col>
+          <ion-col style="text-align:right;">{{pord.payment_type}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="orderInfoKey">Payment Status</ion-col>
+          <ion-col style="text-align:right;">{{pord.payment_status}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="orderInfoKey">Order Status</ion-col>
+          <ion-col style="text-align:right;">{{pord.service_status}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="orderInfoKey">Amount</ion-col>
+          <ion-col style="text-align:right;">&#8377;{{pord.amount}}</ion-col>
+        </ion-row>
+
+        <ion-row *ngIf="pord.is_store=='yes'">
+          <ion-col class="orderInfoKey">Pick Up the Store</ion-col>
+          <ion-col style="text-align:right;">{{pord.is_store}}</ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="6">
+            <ion-button color="secondary" (click)="pickupOrder(pord.id)">Pick up Order</ion-button>
+          </ion-col>
+          <ion-col size="6">
+            <ion-button  color="danger"  (click)="goOrderDetails(pord.id)">View</ion-button>
+          </ion-col>
+          
+     </ion-row>
+
+      </ion-card-content>
+    </ion-card>
+  </div>
+    <ion-card *ngIf="no_processingorders1==false">
+         <h3 style="text-align: center;color: #e44424;font-size:16px;">No Processing Orders</h3>
+    </ion-card>
+  </div>
+
+
+  <div *ngIf="transmit_order==true">
+    <div *ngIf="no_transitorders1==true">
+      
+    <ion-card *ngFor="let tord of transmit_orders">
+      <ion-card-content>
+        <ion-row>
+          <ion-col class="orderInfoKey">OrderId</ion-col>
+          <ion-col style="text-align:right;">{{tord.id}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="orderInfoKey">Order Date</ion-col>
+          <ion-col style="text-align:right;">{{tord.created_date}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="orderInfoKey">Payment Type</ion-col>
+          <ion-col style="text-align:right;">{{tord.payment_type}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="orderInfoKey">Payment Status</ion-col>
+          <ion-col style="text-align:right;">{{tord.payment_status}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="orderInfoKey">Order Status</ion-col>
+          <ion-col style="text-align:right;">{{tord.service_status}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="orderInfoKey">Amount</ion-col>
+          <ion-col style="text-align:right;">&#8377;{{tord.amount}}</ion-col>
+        </ion-row>
+        <ion-row *ngIf="tord.is_store=='yes'">
+          <ion-col class="orderInfoKey">Pick Up the Store</ion-col>
+          <ion-col style="text-align:right;">{{tord.is_store}}</ion-col>
+        </ion-row>
+
+         <ion-row>
+          <ion-col size="6">
+            <ion-button color="secondary" (click)="confirmdelivery(tord.id)">Complete Order</ion-button>
+          </ion-col>
+          <ion-col size="2">
+          </ion-col>
+          <ion-col size="4">
+            <ion-button  color="danger"  (click)="goOrderDetails(tord.id)">View</ion-button>
+          </ion-col>
+         </ion-row>
+
+      </ion-card-content>
+    </ion-card>
+
+    </div>
+    <ion-card *ngIf="no_transitorders1==false">
+         <h3 style="text-align: center;color: #e44424;font-size:16px;">No In-Transit Orders</h3>
+    </ion-card>
+  </div>
+
+  <div *ngIf="completedorder==true">
+    <div *ngIf="no_completeorders1==true">
+
+    <ion-card *ngFor="let cord of completed_orders">
+      <ion-card-content  (click)="goOrderDetails(cord.id)">
+        <ion-row>
+          <ion-col class="orderInfoKey">OrderId</ion-col>
+          <ion-col style="text-align:right;">{{cord.id}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="orderInfoKey">Order Date</ion-col>
+          <ion-col style="text-align:right;">{{cord.created_date}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="orderInfoKey">Payment Type</ion-col>
+          <ion-col style="text-align:right;">{{cord.payment_type}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="orderInfoKey">Payment Status</ion-col>
+          <ion-col style="text-align:right;">{{cord.payment_status}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="orderInfoKey">Order Status</ion-col>
+          <ion-col style="text-align:right;">{{cord.service_status}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="orderInfoKey">Amount</ion-col>
+          <ion-col style="text-align:right;">&#8377;{{cord.amount}}</ion-col>
+        </ion-row>
+        <ion-row *ngIf="cord.is_store=='yes'">
+          <ion-col class="orderInfoKey">Pick Up the Store</ion-col>
+          <ion-col style="text-align:right;">{{cord.is_store}}</ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </div>
+    <ion-card *ngIf="no_completeorders1==false">
+         <h3 style="text-align: center;color: #e44424;font-size:16px;">No Completed Orders</h3>
+    </ion-card>
+  </div>
+
+ 
+</ion-content>

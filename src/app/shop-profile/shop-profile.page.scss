@@ -1,0 +1,36 @@
+.vendor-head{
+    font-size:16px;
+    font-weight:600;
+    padding-inline:0px;
+}
+ion-input,  ion-select, ion-textarea{
+    margin-bottom:15px;
+    border-bottom: 1px solid #f47a20;
+    background: #f4f2f2ab;
+}
+ion-button{
+        --background: #f47a20;
+        width: 50%;
+        margin: 10px auto;
+        display: block;
+}
+
+.profilecard {
+    box-shadow: 0px 2px 5px 3px #e2e2e2;
+    border-radius: 15px;
+    padding: 5px 12px;
+    margin-top: 10px;
+    outline: none;
+    p {
+        b {
+            font-size: 14px;
+            font-weight: 600;
+            color: #000;
+        }
+    }
+    h4 {
+        font-size: 18px;
+    color: #655d5d !important;
+    font-weight: 600;
+    }
+ }

@@ -1,0 +1,171 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button defaultHref slot="start"></ion-back-button>
+    <ion-title class="vendor-head">My Bid Requests</ion-title>
+  </ion-toolbar>
+  <ion-segment scrollable class="bid" name="bidRequest" [(ngModel)]="bidRequest">
+    <ion-segment-button value="openBid" (click)="goBid('openBid')">
+      <ion-label>Open Bid</ion-label>
+    </ion-segment-button>
+    <!-- <ion-segment-button value="accepted" (click)="goBid('accepted')">
+      <ion-label>Accepted</ion-label>
+    </ion-segment-button> -->
+    <ion-segment-button value="closed" (click)="goBid('closed')">
+      <ion-label>Closed</ion-label> 
+    </ion-segment-button>
+  </ion-segment>
+</ion-header>
+
+<ion-content>
+  <div [ngSwitch]="bidRequest">
+    <div *ngSwitchCase="'openBid'">
+
+      <ion-card class="bid-card" (click)="bidProductList(bid.id)" *ngFor="let bid of bidslist">
+        <ion-card-content>
+          <ion-row>
+            <ion-col size="6" align="left">
+              Bid ID
+            </ion-col>
+            <ion-col size="6" align="right">
+              #{{bid.id}}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="6" align="left">
+              No of Products
+            </ion-col>
+            <ion-col size="6" align="right">
+              {{bid.total_products}}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="6" align="left">
+              Date & Time
+            </ion-col>
+            <ion-col size="6" align="right">
+              {{bid.created_at}}
+            </ion-col>
+          </ion-row>
+          <ion-row style="border-top:1px solid #707070">
+            <ion-col size="6" align="left">
+              Bid Status
+            </ion-col>
+            <ion-col size="6" align="right" style="color:#081f65;">
+              {{bid.bidstatus}}
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+
+       <ion-card class="bid-card" *ngIf="nval==false">
+          <ion-card-content>
+            <ion-row>
+                <ion-col>
+                  <h3 style="text-align: center;color: red;">No Bids</h3>
+                </ion-col>
+            </ion-row>
+          </ion-card-content>
+       </ion-card>
+
+    </div>
+
+    <div *ngSwitchCase="'accepted'">
+      <ion-card class="bid-card" (click)="bidProductList(bid.id)" *ngFor="let bid of bidslist">
+        <ion-card-content>
+          <ion-row>
+            <ion-col size="6" align="left">
+              Bid ID
+            </ion-col>
+            <ion-col size="6" align="right">
+              #{{bid.id}}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="6" align="left">
+              No of Products
+            </ion-col>
+            <ion-col size="6" align="right">
+              {{bid.total_products}}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="6" align="left">
+              Date & Time
+            </ion-col>
+            <ion-col size="6" align="right">
+              {{bid.created_at}}
+            </ion-col>
+          </ion-row>
+          <ion-row style="border-top:1px solid #707070">
+            <ion-col size="6" align="left">
+              Bid Status
+            </ion-col>
+            <ion-col size="6" align="right" style="color:#1f9412;">
+              {{bid.bidstatus}}
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+       <ion-card class="bid-card" *ngIf="nval==false">
+          <ion-card-content>
+            <ion-row>
+                <ion-col>
+                  <h3 style="text-align: center;color: red;">No Accepted Bids</h3>
+                </ion-col>
+            </ion-row>
+          </ion-card-content>
+       </ion-card>
+      
+      
+    </div>
+
+    <div *ngSwitchCase="'closed'">
+      <ion-card class="bid-card" (click)="bidProductList(bid.id)" *ngFor="let bid of bidslist">
+        <ion-card-content>
+          <ion-row>
+            <ion-col size="6" align="left">
+              Bid ID
+            </ion-col>
+            <ion-col size="6" align="right">
+              #{{bid.id}}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="6" align="left">
+              No of Products
+            </ion-col>
+            <ion-col size="6" align="right">
+              {{bid.total_products}}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="6" align="left">
+              Date & Time
+            </ion-col>
+            <ion-col size="6" align="right">
+              {{bid.created_at}}
+            </ion-col>
+          </ion-row>
+          <ion-row style="border-top:1px solid #707070">
+            <ion-col size="6" align="left">
+              Bid Status
+            </ion-col>
+            <ion-col size="6" align="right" style="color:#f02d3a;">
+              {{bid.bidstatus}}
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+       <ion-card class="bid-card" *ngIf="nval==false">
+          <ion-card-content>
+            <ion-row>
+                <ion-col>
+                  <h3 style="text-align: center;color: red;">No Closed Bids</h3>
+                </ion-col>
+            </ion-row>
+          </ion-card-content>
+       </ion-card>
+    </div>
+    
+  </div>
+</ion-content>

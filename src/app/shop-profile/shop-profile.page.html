@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-toolbar style="--background: #fff;color: black;">
+    <ion-back-button defaultHref slot="start"></ion-back-button>
+    <ion-title class='vendor-head'>Shop Profile</ion-title>
+
+    <ion-buttons style="margin-right:5px;" slot="end" (click)="orderspag()"><ion-icon name="create-outline"></ion-icon></ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="profilecard" style="font-size:12px;">
+
+
+    <h2 style="color:#05274d;font-size:18px;" *ngIf="shopDetail?.shop_name!=''">Hi, {{shopDetail?.shop_name}}</h2>
+
+    <ion-row style="color:black" *ngIf="shopDetail?.name!=''">
+      <ion-col size="6" align='left'>
+        Name
+      </ion-col>
+      <ion-col size="6" align='right'>
+        {{shopDetail?.name}}
+      </ion-col>
+    </ion-row>
+
+    <ion-row style="color:black" *ngIf="shopDetail?.phone!=''">
+      <ion-col size="6" align='left'>
+        Mobile
+      </ion-col>
+      <ion-col size="6" align='right'>
+        {{shopDetail?.phone}}
+      </ion-col>
+    </ion-row>
+
+    <ion-row style="color:black"  *ngIf="shopDetail?.email!=''">
+      <ion-col size="6" align='left'>
+        Email
+      </ion-col>
+      <ion-col size="6" align='right'>
+        {{shopDetail?.email}}
+      </ion-col>
+    </ion-row>
+
+    <ion-row style="color:black"  *ngIf="shopDetail?.state!=''">
+      <ion-col size="6" align='left'>
+        State
+      </ion-col>
+      <ion-col size="6" align='right'>
+        {{shopDetail?.state}}
+      </ion-col>
+    </ion-row>
+    <ion-row style="color:black"  *ngIf="shopDetail?.cityname!=''">
+      <ion-col size="6" align='left'>
+        City
+      </ion-col>
+      <ion-col size="6" align='right'>
+        {{shopDetail?.cityname}}
+      </ion-col>
+    </ion-row>
+    <ion-row style="color:black"  *ngIf="shopDetail?.location!=''">
+      <ion-col size="6" align='left'>
+        Location
+      </ion-col>
+      <ion-col size="6" align='right'>
+        {{shopDetail?.location}}
+      </ion-col>
+    </ion-row>
+    <ion-row style="color:black"  *ngIf="shopDetail?.min_order_amount!=''">
+      <ion-col size="6" align='left'>
+        Delivery Amount
+      </ion-col>
+      <ion-col size="6" align='right'>
+        {{shopDetail?.min_order_amount}}/-
+      </ion-col>
+    </ion-row>
+
+    
+
+    <!-- <p><b>Name :</b> {{shopDetail?.name}}</p>
+    <p><b>Mobile :</b> {{shopDetail?.phone}}</p>
+    <p><b>Email :</b> {{shopDetail?.email}}</p>-->
+    <h6 style="border-top:1px solid lightgrey;padding-top:10px;color:black;font-size:13px;">Description </h6> 
+    <p style="margin-top:0px;" *ngIf="shopDetail?.description!=''">{{shopDetail?.description}}</p>
+    <h6 style="color:black;font-size:13px;">Address</h6>
+    <p style="margin-top:0px;"> {{shopDetail?.address}}
+    <!-- {{shopDetail.city}} - --> {{shopDetail?.pincode}}</p>
+    <!-- <h6 style="color:black;font-size:13px;">Delivery Time :
+    <span style="margin-top:0px;color:#05274d"> {{shopDetail?.delivery_time}}</span></h6>
+    <h6 style="color:black;font-size:13px;">Delivery Amount :
+    <span style="margin-top:0px;color:#05274d">{{shopDetail?.min_order_amount}}</span></h6>  -->
+  </ion-card>
+
+</ion-content>

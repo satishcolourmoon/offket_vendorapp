@@ -1,0 +1,79 @@
+<ion-content style="--background:#05274d;">
+
+  <div class="div_content">
+    <div class="div_logo">
+      <img src="assets/images/loginlogo.png" class="img_logo" />
+    </div>
+    <!-- <h3 style="text-align: center;color:#ffa500a1;">VisualMerchant/Vendor Login</h3> -->
+    <p align='center' class="wel">Welcome back to Offket<br/>
+      Just entry your credentials and<br/>
+      you are ready to go</p>
+    <div class="div_primary_text">
+
+      <form [formGroup]="loginForm" (ngSubmit)="login()" autocomplete="something">
+        <div class="div_inner">
+          <!-- <img src="assets/images/user_icon.png" class="img_user" /> -->
+          <ion-input type="tel" maxlength="10" Placeholder="Mobile Number" [(ngModel)]="user_name" class="in" formControlName="user_name" clearInput ></ion-input>
+        </div>
+
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.user_name.errors?.required">
+      Mobile number is required.
+    </span>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.user_name.errors?.pattern">
+    Please enter 10 digits Mobile Number.
+    </span>
+
+
+        <div class="div_inner">
+          <!-- <img src="assets/images/lock.png" class="img_user" /> -->
+          <ion-input [type]="passwordType" Placeholder="Password" class="in" [(ngModel)]="password" formControlName="password" ></ion-input>
+
+        </div>
+        <ion-icon item-end [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.password.errors?.required">
+      Password is required.
+    </span>
+      <div>
+        <ion-label class="lbl_forgot" (click)="goForgotPassword()">Forgot Password?</ion-label>
+      </div>
+       <!--  <ion-radio-group formControlName="user_type" [(ngModel)]="user_type">
+          
+          <ion-row>
+
+            <ion-col>
+              <ion-item>
+                <ion-radio mode="md" item-left value="visual_merchant"></ion-radio>
+                <ion-label>&nbsp;&nbsp;Visual Merchant</ion-label>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-radio mode="md" item-left value="vendor"></ion-radio>
+                <ion-label>&nbsp;&nbsp;Vendor</ion-label>
+              </ion-item>
+            </ion-col>
+
+          </ion-row>
+
+        </ion-radio-group> -->
+
+
+        <div class="div_btn" align='center'>
+          <ion-button type="submit" class="btn_login" expand="block" mode="ios">Login</ion-button>
+        </div>
+        <!-- <ion-label class="lbl_forgot" (click)="goForgotPassword()">Forgot Password?</ion-label> -->
+      </form>
+
+      <div align='center' style="padding-bottom:10px;">
+        <p class="account">Don't have an account?</p>
+        <div (click)="goRegister()">
+          <p class="create" >Create Now</p>
+        </div>
+        
+      </div>
+
+    </div>
+
+  </div>
+</ion-content>

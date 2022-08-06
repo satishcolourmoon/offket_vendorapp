@@ -1,0 +1,27 @@
+<ion-header [translucent]="true" style="background-color:#f4f5f9;">
+	<ion-toolbar style="--background: #05274d;color: #fff;">
+		<ion-buttons slot="start">
+			<ion-back-button defaultHref slot="start" *ngIf="offer_zone=='yes'"></ion-back-button>
+    <ion-menu-button defaultHref slot="start" *ngIf="offer_zone=='no'"></ion-menu-button>
+		</ion-buttons>
+		<ion-title>Membership Plans</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content style="--background: #f1f1f1;">
+	<!-- <div class="plantext">
+		<p style="text-align: center;">Choose the plan that suits you best</p>
+	</div> -->
+
+	<ion-grid class="subscriptionlist">
+		<ion-row class="category" *ngFor="let p of plans" (click)="viewPlan(p.id,p.plan)">
+			<div>
+				<img [src]="p.image">
+				<h6>{{p.plan}}</h6>
+			</div>				
+				<p [innerHtml]="p.description"></p>
+				<!-- <button (click)="viewPlan(p.id,p.plan)">VIEW</button> -->
+			
+		</ion-row>
+	</ion-grid>
+</ion-content>

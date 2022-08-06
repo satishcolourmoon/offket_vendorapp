@@ -1,0 +1,54 @@
+<ion-header>
+	<ion-toolbar style="--background: #8f8f8f;color: #fff;">
+		<ion-back-button defaultHref slot="start"></ion-back-button>
+	</ion-toolbar>
+</ion-header>
+<ion-content style="--background: #00000070">
+  <div class="modalbox1">
+
+      <p class="reviewrate">Exchange</p>
+      <!-- <div style="text-align: center;">
+      	<ion-label class="reviewtitle">Select Refund or Exchange</ion-label>
+      	 <ion-select [(ngModel)]="refund_exchange" name="refund_exchange" (ionChange)="getStatus()">
+      	 	 <ion-select-option value="1">Exchange</ion-select-option>
+      	 	   <ion-select-option value="2">Refund</ion-select-option>
+      	 	
+      	 </ion-select>
+      </div> -->
+
+      <div style="text-align: center;">
+        <ion-label class="reviewtitle">Your Total Amount</ion-label>
+         <ion-input type="text" [(ngModel)]="total_payment" name="total_payment" readonly style="border: 1px solid #ccc; margin: 2px; border-radius: 10px;"></ion-input>
+      </div>
+      <div style="text-align: center;">
+        <ion-label class="reviewtitle">Requested Amount</ion-label>
+         <ion-input type="number" [(ngModel)]="requested_amount" name="requested_amount" style="border: 1px solid #ccc; margin: 2px; border-radius: 10px;"></ion-input>
+      </div>
+
+
+      <div >
+        <ion-label class="reviewtitle">Description</ion-label>
+        <ion-textarea placeholder="Please Type Here ..." [(ngModel)]="reason" name="reason" class="descriptionbox" style="margin-bottom: 20px;">
+        </ion-textarea>
+        <ion-button color="success" type="submit" (click)="requestPayment()"> Request Payment </ion-button>
+      </div>
+
+
+  </div>
+
+</ion-content>
+
+<style>
+  .inactive_star {
+    text-align: center;
+    font-size: 27px;
+    margin: 2px;
+  }
+
+  .active_star {
+    font-size: 27px;
+    text-align: center;
+    color: #dcdc08;
+    margin: 2px;
+  }
+</style>

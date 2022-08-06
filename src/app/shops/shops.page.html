@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar style="--background: #f47a20;color: #fff;">
+    <ion-back-button defaultHref slot="start"></ion-back-button>
+    <ion-title>Shops</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let shop of shops" (click)="viewShop(shop.id)" style="outline:none">
+      <ion-card-content>
+              <img src="{{shop.shop_logo}}" alt="" class="shop_logo">
+              <h2 style="text-align: center;">{{shop.shop_name}}</h2>
+      </ion-card-content>
+  </ion-card>
+
+</ion-content>

@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar style="--background: #fff;color: #000;">
+    <ion-back-button defaultHref slot="start"></ion-back-button>
+    <ion-title class="vendor-head">Product Image</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+
+  <ion-grid style="padding:10px 0px;">
+    <ion-row style="padding:0px 8px;">
+      <ion-col size="6" *ngFor="let pro_img of product_images">
+        <div style="border:1px solid #crcc;border-radius:20px;"><!--class="imageSelect" -->
+          <span style="background-color: red;color: #fff;border-radius: 50%; padding: 2px;height: 25px;margin-left: 82%;
+          position: absolute;
+          top: 0px;" (click)="deleteImage(pro_img.id)">
+            <ion-icon style="font-size:20px;" name="close-outline"></ion-icon>
+          </span>
+          <img style="width:100%;padding:10px;height:260px;margin-top:20px;" src="{{pro_img.image}}" >
+      </div>
+      </ion-col>
+    </ion-row>
+    <div align='center' style="background-color:#f1f1f1;color:#cc180a;margin-top:10px;font-size:15px;padding:10px;"> 
+      Note:Accepting this non-copyright pictures
+    </div>
+    <ion-row>
+      <ion-col>
+        <button (click)="selectImage()" style="margin-top: 20px;">Upload Image</button><!--*ngIf="image_update"-->
+        <!-- <button *ngIf="!image_update" style="margin-top: 20px;">Update Image</button> -->
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>
+
+<style>
+  button {
+    margin: auto;
+    display: block;
+    color: #fff;
+    background: #081f65;
+    padding: 10px 10px;
+    outline:none;
+    border-radius: 15px;
+  }
+</style>

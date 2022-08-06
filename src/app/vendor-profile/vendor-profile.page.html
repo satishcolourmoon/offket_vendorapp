@@ -1,0 +1,116 @@
+<ion-header [translucent]="true">
+  <ion-toolbar style="--background: #f47a20;color: #fff;">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Vendor Dashboard
+    </ion-title>
+    <!-- <ion-icon name="power" slot="end" class="signout" (click)="logout()"></ion-icon> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card *ngIf="!shopDetail?.shop_name" class="profilecard">
+    <h2>
+      <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+    </h2>
+    <p>
+      <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+    </p>
+    <p>
+      <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+    </p>
+    <p>
+      <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+    </p>
+  </ion-card>
+  <ion-card *ngIf="shopDetail?.shop_name" class="profilecard">
+    <h2>{{shopDetail?.shop_name}}</h2>
+
+
+
+    <p><b>Name :</b> {{shopDetail?.name}}</p>
+    <p><b>Mobile :</b> {{shopDetail?.phone}}</p>
+    <p><b>Delivery amuont :</b> {{shopDetail?.min_order_amount}}</p>
+    <p><b>Delivery Time :</b> {{shopDetail?.delivery_time}}</p>
+  </ion-card>
+
+
+<!--   <ion-card style="border: 1px solid #c2bbbb;outline:none">
+<ion-card-content style="padding: 15px;">
+  <ion-row>
+        <ion-col size="4" style="text-align: center; border: 1px solid #ccc; padding:10px; color: #f47a20">
+          <b>Today Orders<br> </b><span style="color: #000;">{{dashboard?.today_orders}}</span>
+        </ion-col>
+        <ion-col size="4" style="text-align: center; border: 1px solid #ccc; padding:10px; color: #f47a20">
+          <b>Total Orders<br> </b><span style="color: #000;">{{dashboard?.total_orders}}</span>
+        </ion-col>
+        
+        <ion-col size="4" style="text-align: center; border: 1px solid #ccc; padding:10px; color: #f47a20">
+          <b>Total Items<br> </b><span style="color: #000;">{{dashboard?.total_items}}</span>
+        </ion-col>
+        
+   </ion-row>
+
+
+</ion-card-content>
+</ion-card> -->
+
+
+
+  <ion-card class="profilecard" routerLink="/shop-profile/{{shopDetail?.user_id}}">
+    <ion-card-content style="padding: 5px;">
+      <ion-row>
+        <ion-col size="2" style="text-align: center;">
+          <ion-icon name="person-circle-outline" style="font-size: 30px;"></ion-icon>
+        </ion-col>
+        <ion-col size="10" style="text-align: left;">
+          <h4 style="color: #000;"> Shop Profile</h4>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="profilecard" routerLink="/categories/{{shopDetail?.user_id}}">
+    <ion-card-content style="padding: 5px;">
+      <ion-row>
+        <ion-col size="2" style="text-align: center;">
+          <ion-icon name="list-circle-outline" style="font-size: 30px;"></ion-icon>
+        </ion-col>
+        <ion-col size="10" style="text-align: left;">
+          <h4 style="color: #000;">Products</h4>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="profilecard" routerLink="/request-new-product/{{shopDetail?.user_id}}">
+    <ion-card-content style="padding: 5px;">
+      <ion-row>
+        <ion-col size="2" style="text-align: center;">
+          <ion-icon name="add-circle-outline" style="font-size: 30px;"></ion-icon>
+        </ion-col>
+        <ion-col size="10" style="text-align: left;">
+          <h4 style="color: #000;">Request New Product</h4>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card style="border: 1px solid #c2bbbb;outline:none" (click)="orders()">
+    <ion-card-content style="padding: 15px;">
+      <ion-row>
+        <ion-col size="2" style="text-align: center;">
+          <ion-icon name="list-circle-outline" style="font-size: 30px;"></ion-icon>
+        </ion-col>
+        <ion-col size="10" style="text-align: left;">
+          <ion-title style="color: #000;">Orders</ion-title>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+
+
+
+</ion-content>

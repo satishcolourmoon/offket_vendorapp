@@ -1,0 +1,107 @@
+.vendor-head{
+   font-size:16px;
+   font-weight:600;
+   padding-inline:0px;
+}
+ion-segment{
+    // --background: linear-gradient(brown , brown); 
+    --color: #040404;
+      height: 53px;
+    --background:#eceaeb;
+    border-bottom: 1px solid #05274d;
+  }
+  ion-segment-button{
+    --color: #0e0e0e;
+    --background:#eceaeb;
+    --indicator-color: #05274d;
+   //  --background-checked: #ffffff;
+    --color-checked: #05274d;
+    --indicator-height: 3px;
+    /* min-height: 30px; */
+    text-transform: capitalize;
+    --padding-bottom: 10px;
+    --padding-top: 5px;
+    font-size: 14px;
+  }
+  .productlist {
+    letter-spacing: 1px;
+    border-radius: 6px;
+    background: #fff;
+    padding: 8px 14px;
+    font-size: 14px;
+    outline:none;
+    color:#05274d;
+    margin: 8px 17px;
+    font-weight: 600;
+ }
+
+// .segment{
+//     background: #fff;
+//     border-radius: 10px;
+//     margin-right: 10px;
+//     margin-left:5px;
+//     border: 1px solid #f47a20;
+//     border-radius: 20px;
+//     font-weight: bold;
+
+//     label{
+//         --color:#f47a20;
+//     }
+// }
+
+// .active_segment{
+//     background: #f47a20;
+//     border-radius: 10px;
+//     margin-right: 10px;
+//     margin-left:5px;
+//     border-radius: 20px;
+//     font-weight: bold;
+//     label{
+//         --color:#fff;
+//     }
+// }
+
+.profilecard {
+  box-shadow: 0px 2px 5px 3px #e2e2e2;
+  border-radius: 15px;
+  outline: none;
+  img {
+     width: 100%;
+  }
+  h4 {
+      font-size: 18px;
+  color: black !important;
+  font-weight: 600;
+//   margin-left: 12px;
+  }
+}
+
+.emptybox {
+   margin-top: 20%;
+   img {
+      width: 70%;
+      margin: auto;
+      display: block;
+   }
+   h2 {
+    text-align: center;
+    color: #ff6b00bf;
+    font-weight: 600;
+    margin-top: 10%;
+   }
+}
+
+.button-native {
+   padding:8px !important;
+}
+
+ion-button {
+   font-size: 12px;
+   height: 30px;
+   --background: #081f65;
+   --border-radius: 10px;
+   text-transform: none;
+   margin: auto;
+   display: block;
+   width: 80%;
+}

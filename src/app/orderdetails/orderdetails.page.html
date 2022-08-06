@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-toolbar style="--background: #05274d;color: #fff;">
+    <ion-back-button defaultHref slot="start"></ion-back-button>
+    <ion-title>Order Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="font-family: Arial, Helvetica, sans-serif !important;">
+
+  
+  <ion-card>
+    <h2 class="title">Delivery Details</h2>
+    <ion-card-content style="padding: 0px 15px;">
+      <h2><b>{{ordersdetails?.customer_name}}</b>  </h2>
+      <p>{{ordersdetails?.address}} <br>{{ordersdetails?.mobile}}</p>
+    </ion-card-content>
+  </ion-card>
+
+  
+  <ion-card>
+    <h2 class="title">User Details</h2>
+    <ion-card-content style="padding: 0px 15px;">
+      <b>Name : </b> {{ordersdetails?.customer_name}} <br>
+      <p><b>Mobile :</b> {{ordersdetails?.mobile}}</p>
+    </ion-card-content>
+  </ion-card>
+
+ 
+  <ion-card>
+     <h2 class="title">Item Details</h2>
+    <ion-card-content style="padding: 0px 15px;">
+      <b>Order Id:</b> {{ordersdetails?.id}}<br>
+      <b>Order Placed on:</b> {{ordersdetails?.placed_on}}<br>
+      <b>Order Status:</b> {{ordersdetails?.order_status}}
+      <b>Delivered Date:</b> {{ordersdetails?.delivered_date}}
+
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-card >
+    <h2 class="title">Products</h2>
+    <ion-card-content style="padding: 0px 15px;">
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Attributes</th>
+              <th>Total Price</th>
+            </tr>
+
+            <tr *ngFor="let cart of ordersdetails?.cartdetails">
+              <td>
+                <img src="{{cart.image}}" style="width: 50px; height: 50px;">
+              <p>{{cart.productname}}</p></td>
+              <td> ₹{{cart.price}}</td>
+              <td>{{cart.quantity}}</td>
+              <td><div *ngFor="let atr of cart.attributes"><b>{{atr.attribute_type}} :</b>{{atr.attribute_values}}</div></td>
+              <td>₹{{cart.unit_price}}</td>
+            </tr>
+             <tr class="ion-text-right">
+              <td colspan="2">Total:</td>
+              <td colspan="3"> ₹{{ordersdetails?.sub_total}}</td>
+            </tr>
+            <tr *ngIf="ordersdetails?.coupon_disount!='0'" class="ion-text-right">
+              <td colspan="2">Coupon Code:</td>
+              <td colspan="3">- ₹{{ordersdetails?.coupon_disount}}</td>
+            </tr>
+            <tr class="ion-text-right">
+              <td colspan="2">Delivery:</td>
+              <td colspan="3">+ ₹{{ordersdetails?.deliveryboy_commission}}</td>
+            </tr>
+            <tr class="ion-text-right">
+              <td colspan="2">Grand Total:</td>
+              <td colspan="3">₹{{ordersdetails?.amount}}</td>
+            </tr>
+          </table>
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-card>
+    <h2 class="title">Payment Details</h2>
+    <ion-card-content style="padding: 0px 15px;">
+      <b>Payment Option:</b> {{ordersdetails?.payment_type}} <br>
+      <b>Payment Status:</b> {{ordersdetails?.payment_status}}
+      
+    </ion-card-content>
+  </ion-card>
+
+    <!-- <ion-card *ngIf="ordersdetails?.order_status=='show'">
+    <h2 class="title">Delivery Boy Details</h2>
+    <ion-card-content style="padding: 0px 15px;">
+      <b>Name:</b> {{ordersdetails?.delivery_name}} <br>
+      <b>Phone:</b> {{ordersdetails?.delivery_phone}} <br>
+      <b>Alternative Phone:</b> {{ordersdetails?.alternative_mobiles}} <br>
+      <b>Delivery Amount:</b> {{ordersdetails?.deliveryboy_commission}}
+      
+    </ion-card-content>
+  </ion-card> -->
+
+  
+
+  
+</ion-content>

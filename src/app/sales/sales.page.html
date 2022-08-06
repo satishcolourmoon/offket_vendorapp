@@ -1,0 +1,74 @@
+<ion-header>
+	<ion-toolbar style="--background: #fff;color: #000;">
+		<ion-back-button defaultHref slot="start"></ion-back-button>
+		<ion-title class='vendor-head'>Sale Report</ion-title>
+	</ion-toolbar>
+</ion-header>
+<ion-content>
+	<ion-grid style="padding:0px;">
+		<ion-row style="background-color:#05274d;">
+			<ion-col size="8" style="padding-top:8px;">
+				<ion-datetime class="salesdate" displayFormat="MM-YYYY" [(ngModel)]="sdate" name="sdate" value=""
+					placeholder="Select MM-YYYY"></ion-datetime>
+			</ion-col>
+			<ion-col size="4">
+				<ion-button class="salesbutton" (click)="getReport()">Get Report</ion-button>
+			</ion-col>
+		</ion-row>
+		<ion-row *ngIf="nval == true">
+			<ion-col siz="12" style="padding:0px;">
+				<div style="overflow-x:auto;overflow: scroll;">
+					<table>
+						<tr>
+							<!-- <th>ID</th> -->
+							<th>OrderID</th>
+							<!-- <th>Total Type</th> -->
+							<th>Total Price</th>
+							<!-- <th>Admin Commission</th> -->
+							<th> Vendor Amount</th> <!-- Vendor Amount-->
+							<!-- <th> GST</th> -->
+							<th> Payment Status</th>
+							<th>Service Status</th>
+							<th>Date</th>
+						</tr>
+						<tr *ngFor="let sale of sales">
+							<td (click)="gopage(sale.id)">{{sale.id}}</td>
+							<td><b>&#8377;{{sale.total_price}}</b></td>
+							<!-- <td><b>&#8377;{{sale.admin_commission}}</b></td> -->
+							<td><b>&#8377;{{sale.vendor_commission}}</b></td>
+							<!-- <td><b>&#8377;{{sale.gst}}</b></td> -->
+							<td><b>{{sale.payment_status}}</b></td>
+							<td><b>{{sale.service_status}}</b></td>
+							<td>{{sale.created_date}}</td>
+						</tr>
+					</table>
+				</div>
+				<div *ngIf="nval==false">
+					<p>No Sales</p>
+				</div>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>
+
+
+
+<!-- <ion-row *ngFor="let variant of variant_list">
+	<ion-col>
+		{{variant.product}}
+	</ion-col>
+	<ion-col>
+		{{variant.attribute_type}}
+	</ion-col>
+	<ion-col>
+		{{variant.attribute_values}}
+	</ion-col>
+	<ion-col>
+		<ion-button (click)="editVariant(variant.id,variant.attribute_type_id,variant.attribute_values_ids)">
+			<ion-icon name="create-outline"></ion-icon>
+		</ion-button>
+		<ion-button (click)="deleteVariant(variant.id)">
+			<ion-icon name="trash-outline"></ion-icon>
+		</ion-button>
+	</ion-col>
+</ion-row> -->

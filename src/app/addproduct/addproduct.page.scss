@@ -1,0 +1,21 @@
+.addproductContainer{
+    padding:15px;
+
+    ion-input,  ion-select, ion-textarea{
+        margin-bottom:15px;
+        border-bottom: 1px solid #f47a20;
+        background: #f4f2f2ab;
+    }
+    ion-button{
+            --background: #f47a20;
+            width: 50%;
+            margin: 10px auto;
+            display: block;
+    }
+    .images{
+        background-color: #ccc;
+        background-size:cover;
+        background-repeat:no-repeat;
+        border-radius: 10px;
+    }
+}

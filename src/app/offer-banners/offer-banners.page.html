@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar style="--background: #fff;color: black;">
+    <ion-back-button defaultHref slot="start"></ion-back-button>
+    <ion-title class='vendor-head'>Banners</ion-title>
+    <button slot="end" class="productlist" (click)="addBanner(banners_count)">Add New Banners</button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- <ion-row class="image-banner">
+    <div>
+      <ion-icon name="trash" style="font-size:18px;color:#f11313;border-radius:50%;background:#fff;padding:5px;margin-top:12px;margin-left:90%;"></ion-icon>
+      <span><img style="margin-top:-38px;" src="../../assets/images/shops/banner.jpg"></span>
+    </div>
+    
+  </ion-row> -->
+
+  <ion-grid style="padding:0px 0px 0px 0px;">
+  <ion-row *ngIf="nval==true">
+    <ion-col siz="12" style="padding:0px;">
+      <table>
+        <tr>
+          <th>Title</th>
+          <th>Image</th>
+          <th>Action</th>
+        </tr>
+        <tr *ngFor="let c of bannerslist">
+          <td>{{c.title}}</td>
+          <td><img style="width: 100px; height: 100px;" src="{{c.image}}"></td>
+          <td>
+            <button class="editbtn" *ngIf="banners_count>0" (click)="editBanner(c.id,c.image,c.title,c.image_file)">
+              <ion-icon name="create-outline"></ion-icon>
+            </button>
+            <button class="deletebtn" (click)="deleteBanner(c.id)">
+              <ion-icon name="trash-outline"></ion-icon>
+            </button>
+          </td>
+        </tr>
+        
+      </table>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="nval==false">
+    <ion-col>
+      <h3 style="text-align: center;color: red;">No Banners</h3>
+    </ion-col>
+  </ion-row>
+
+  </ion-grid>
+
+    
+</ion-content>
+
+
+
+
+

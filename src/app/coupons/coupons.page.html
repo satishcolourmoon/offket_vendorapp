@@ -1,0 +1,45 @@
+<ion-header>
+	<ion-toolbar style="--background: #fff;color: #000;">
+
+		<ion-back-button defaultHref slot="start"></ion-back-button>
+		<ion-title class="vendor-head">Coupons</ion-title>
+		<!-- <button (click)="goProducts()" slot="end" class="productlist">Products</button> -->
+		<button (click)="addCoupon(coupon)" slot="end" class="productlist">Add New Coupons</button>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid style="padding:0px 0px 0px 0px;">
+	<ion-row>
+		<!-- <ion-col size="12" style="padding:0px;"> -->
+			<table>
+				<tr>
+					<th>Coupon</th>
+					<th> Percentage</th>
+					<th>Maximum Amount</th>
+					<th>Start Date</th>
+					<th>End Date</th>
+					<th>Action</th>
+				</tr>
+				<tr *ngFor="let c of coupons">
+					<td>{{c.coupon_code}}</td>
+					<td>{{c.percentage}}%</td>
+					<td>{{c.maximum_amount}}</td>
+					<td>{{c.start_date}}</td>
+					<td>{{c.expiry_date}}</td>
+					<td>
+						<button class="editbtn" (click)="editCoupon(c)">
+							<ion-icon name="create-outline"></ion-icon>
+						</button>
+						<button class="deletebtn" (click)="deleteCoupon(c.id)">
+							<ion-icon name="trash-outline"></ion-icon>
+						</button>
+					</td>
+				</tr>
+				
+			</table>
+		<!-- </ion-col> -->
+	</ion-row>
+
+	</ion-grid>
+</ion-content>

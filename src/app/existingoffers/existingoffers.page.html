@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar style="--background: #fff;color: black;">
+    <ion-back-button defaultHref slot="start"></ion-back-button>
+    <ion-title class="vendor-head">Admin Offers</ion-title>
+
+  </ion-toolbar>
+  <ion-segment scrollable (ionChange)="segmentChanged($event)" value="{{currentSegment}}">
+    <ion-segment-button *ngFor="let s of sub_categories" value="{{s.id}}">
+      <ion-label style="text-transform: capitalize;">{{s.title}}</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="products.length>0">
+    <!-- <h2 style="text-align: center;color: #ff6b00bf;">No Products Found</h2> -->
+
+    <ion-row padding>
+      <ion-col size="6" *ngFor="let p of products">
+        <ion-card>
+          <div style="width: 100%;height:100px;background-size: contain;background-repeat: no-repeat;
+              border-radius: 18px;background-image: url({{p.image}});background-position: center;">
+          </div>
+          <div style="padding: 6px 3px 14px;">
+            <h4 style="text-align: center; margin: 2px;font-weight: 500;">{{p.name}}</h4>
+            <ion-button (click)="cloneProduct(p.id)" style="color:#fff;">
+              Clone Offer
+            </ion-button>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+  </div>
+  <div *ngIf="nval==false" class="emptybox">
+    <img src="assets/images/products.png" class="img_user" />
+    <h2 style="text-align: center;color: #05274d;font-size:20px;">No Offers Found</h2>
+  </div>
+
+
+</ion-content>

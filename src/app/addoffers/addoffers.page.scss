@@ -1,0 +1,49 @@
+.vendor-head{
+    font-size:16px;
+    font-weight:600;
+    padding-inline:0px;
+}
+
+.addproductContainer{
+    padding:15px 25px;
+
+    ion-input,  ion-select, ion-textarea,ion-datetime{
+        margin-bottom: 15px;
+        border: 1px solid #bebdbcd4;
+        border-radius: 20px;
+        padding: 3px 15px !important;
+        background: #fbfafa45;
+        font-size:13px;
+        outline:none;
+    }
+    ion-button{
+            --background: #081f65;
+            width: 55%;
+            margin: 10px auto;
+            height:45px;
+            text-transform:none;
+            display: block;
+            --border-radius:15px;
+            outline:none;
+    }
+    .images{
+        background-color: #ccc;
+        background-size:cover;
+        background-repeat:no-repeat;
+        border-radius: 10px;
+    }
+}
+
+.selectimagecls {
+    background: #081f65;
+    color: #ffc;
+    padding: 14px 10px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 18px;
+  }
+  .selecticon {
+    font-size: 21px;
+    position: absolute;
+    margin-left: 10px;
+  }

@@ -1,0 +1,39 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay">
+     
+    <ion-header >
+      <ion-toolbar class="sidemenuToolbar" style="padding:10px 10px;--background:#041d3a;">
+        <ion-row style="padding:10px 0px;">
+           <ion-col size="12" >
+             <img src="{{image}}" style="border-radius: 50%; background: white; width: 80px; height: 80px;">
+            <h6 style="color:#fff;margin: 10px 5px 5px;font-size:18px;">Hi, {{name}}.</h6>
+            <p style="color:#fff;margin: 5px;">+91 {{mobile}}</p>
+           </ion-col>
+        </ion-row>
+
+      </ion-toolbar>
+    </ion-header>
+
+      <ion-content>
+        <ion-list id="inbox-list" class="sidemenu" *ngFor="let v of vendorMenu">
+          <ion-menu-toggle auto-hide="false">
+            <ion-item  routerDirection="forward" [routerLink]="v.url" lines="none" detail="false" style="padding-left:25px;color:#777777;">
+              {{v.title}}
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+        <ion-list class="sidemenu">
+            <ion-menu-toggle auto-hide="true">
+              <ion-item (click)="logout()" style="--background:#081f66;color:white;">
+                <h4 style="padding-left:33%;">Logout</h4>
+              </ion-item>
+            </ion-menu-toggle>
+          </ion-list>
+
+       
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

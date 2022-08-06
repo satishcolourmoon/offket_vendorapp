@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar style="--background: #05274d;color: #fff;">
+    <ion-back-button defaultHref slot="start"></ion-back-button>
+    <ion-title class="vendor-head">Share App</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ 
+  <ion-card  class="profilecard">
+    <ion-card-content style="padding: 5px;">
+      <ion-row>
+      	<div class="div_logo">
+      <img src="assets/images/share.png" class="img_logo" />
+    </div>
+
+        <ion-col size="10" style="text-align: center;">
+        	<p style="padding: 10px; text-align: justify;">A Community shopping and sharing thousands of amazing products</p>
+        </ion-col>
+        <ion-col size="12" align='center'>
+          <ion-button class="sharebtn" (click)="shareInfo(share_title,playstore_vendorlink)">Share App</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

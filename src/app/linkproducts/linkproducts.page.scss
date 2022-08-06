@@ -1,0 +1,48 @@
+.vendor-head{
+  font-size:16px;
+  font-weight:600;
+  padding-inline:0px;
+}
+table {
+    border-collapse: collapse;
+   width: 100%;
+ }
+ 
+th {
+   border-right: 1px solid #d8d8d8;
+   text-align: left;
+   padding: 12px 3px;
+   font-size:13px;
+   background-color: #efefef;
+   color: #05274d;
+   text-align: center;
+ }
+ td{
+    border-right: 1px solid #d8d8d8;
+    text-align: left;
+    padding: 6px 2px;
+    text-align: center;
+    font-size:15px;
+    border-bottom:3px solid #fff;
+    background-color:#fafafa;
+}
+// tr {
+//     div {
+//         td{
+//             border: 1px solid #dddddd;
+//             text-align: left;
+//             padding: 6px 2px;
+//             text-align: center;  
+//           }
+//     }
+// }
+
+.productlist {
+    letter-spacing: 1px;
+    border-radius: 6px;
+    background: #fff;
+    padding: 8px 14px;
+    font-size: 14px;
+    margin: 8px 17px;
+    font-weight: 600;
+ }

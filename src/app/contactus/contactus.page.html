@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar style="--background: #05274d;color: #fff;">
+    <ion-back-button defaultHref slot="start"></ion-back-button>
+    <ion-title class="vendor-head">Contact Us</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ 
+  <ion-card  class="profilecard">
+    <ion-card-content style="padding: 5px;">
+      <ion-row>
+          <img src="{{image}}" class="img_logo" style="width: 100%;" />
+        
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+        	<p><b style="font-size: 20px; color: #000;">E-Mail : </b> <a href="mailto:{{email}}" style="text-decoration: none; font-size: 18px; color: #05274d;">{{email}}</a></p>
+
+        	<p><b style="font-size: 20px; color: #000;">Mobile : </b><a href="tel:{{mobile}}" style="text-decoration: none; font-size: 18px; color: #05274d;">{{mobile}}</a> </p>
+        </ion-col>
+        
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

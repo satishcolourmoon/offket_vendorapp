@@ -1,0 +1,28 @@
+.signout{
+    right: 10px;
+     position: relative;
+     font-size: 25px;
+     // color: #f67f77;
+ }
+
+ .profilecard {
+    box-shadow: 0px 2px 5px 3px #e2e2e2;
+    border-radius: 15px;
+    padding: 5px 12px;
+    margin-top: 10px;
+    h2 {
+        color: #f47a20;
+    }
+    p {
+        b {
+            font-size: 14px;
+            font-weight: 600;
+            color: #000;
+        }
+    }
+    h4 {
+        font-size: 18px;
+    color: #655d5d !important;
+    font-weight: 600;
+    }
+ }

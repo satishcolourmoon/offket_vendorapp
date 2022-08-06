@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar style="--background: #05274d;color: #fff;">
+    <ion-back-button defaultHref slot="start"></ion-back-button>
+    <ion-title>Confirm OTP</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="--background:#05274d;">
+
+  <div class="div_content">
+    <div class="div_logo">
+      <img src="assets/images/loginlogo.png" class="img_logo" />
+    </div>
+    <div align='center'>
+      <p class="otp_text"> Enter the one time Password<br/>
+        that you just received via<br/>
+        Mobile Number</p>
+      <div style="width: 80%;margin: auto;display: block;">
+        <div class="otpInputs">
+          <ng-otp-input (onInputChange)="onOtpChange($event)"
+            [config]="{length:4,inputStyles:{'width': '55px','height': '55px','border-radius':'50%','list-style':'none'}}">
+          </ng-otp-input>
+        </div>
+        
+        <!-- <ion-row>
+          <ion-col size="3"> 
+                <ion-input type="tel" class="otp" maxlength="1" #Field1 (keyup)="gotonext(Field2)" name="otp1" [(ngModel)]="otp1"></ion-input>
+          </ion-col>
+          <ion-col size="3"> 
+                <ion-input type="tel" class="otp" maxlength="1" #Field2 (keyup)="gotonext(Field3)" name="otp2" [(ngModel)]="otp2"></ion-input> 
+          </ion-col>
+          <ion-col size="3"> 
+                <ion-input type="tel" class="otp" maxlength="1" #Field3 (keyup)="gotonext(Field4)" name="otp3" [(ngModel)]="otp3"></ion-input>
+          </ion-col>
+          <ion-col size="3"> 
+                <ion-input type="tel" class="otp" maxlength="1" #Field4 name="otp4" [(ngModel)]="otp4"></ion-input>
+          </ion-col>             
+        </ion-row>   -->
+
+      </div>
+      <div class="div_btn" align='center' (click)="gotoHome()">
+        <ion-button type="submit" class="btn_login" expand="block" mode="ios">Confirm</ion-button>
+      </div>
+    </div>
+    <div align='center' style="padding-bottom:10px;">
+      <p class="account">Dont't receive code?</p>
+      <div >
+        <p class="create" (click)="resendOTP()">Resend</p>
+      </div>
+      
+    </div>
+  </div>
+</ion-content>

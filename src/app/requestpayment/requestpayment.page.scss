@@ -1,0 +1,89 @@
+.vendor-head{
+   font-size:16px;
+   font-weight:600;
+   padding-inline:0px;
+}
+table {
+     border-collapse: collapse;
+    width: 100%;
+  }
+  
+ th {
+    border-right: 1px solid #cccccc;
+    text-align: left;
+    padding: 12px 3px;
+    background-color: #efefef;
+    color: #05274d;
+    text-align: center;
+    font-size:15px;
+  }
+  td{
+    border-right: 1px solid #d4d4d4;
+    text-align: left;
+    padding: 6px 2px;
+    background-color:#f9f9f9;
+    border-bottom:3px solid #fff;
+    text-align: center;  
+    font-size:13px;
+  }
+
+  .editbtn {
+    font-weight: 600;
+    font-size: 20px;
+    color: #fff;
+    background: green;
+    border-radius: 4px;
+    margin: 2px;
+  }
+  .deletebtn {
+    font-weight: 600;
+    font-size: 20px;
+    color: #fff;
+    background: red;
+    border-radius: 4px;
+    margin: 2px;
+  }
+ .productlist {
+    letter-spacing: 1px;
+    border-radius: 6px;
+    background: #fff;
+    padding: 8px 14px;
+    font-size: 14px;
+    margin: 8px 17px;
+    font-weight: 600;
+ }
+ .addvariant {
+    float: right;
+    color: #fff;
+    padding: 7px;
+    background: #f47a20;
+    border-radius: 3px;
+    font-size: 13px;
+    margin-right: 10px;
+ }
+
+ .addvariantbox {
+     h3 {
+         margin-left: 20px;
+         font-size: 18px;
+         font-weight: 600;
+     }
+     ion-select {
+        border: 1px solid #cac6c6;
+        margin: 11px 15px;
+        border-radius: 5px;
+     }
+     ion-datetime {
+        border: 1px solid #cac6c6;
+        margin: 11px 15px;
+        border-radius: 5px;
+     }
+     button {
+        color: #fff;
+        margin: auto;
+        display: block;
+        background: #f47a20;
+        padding: 7px 10px;
+        border-radius: 4px;
+     }
+ }

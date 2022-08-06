@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar style="--background: #fff;color: black;">
+    <ion-back-button defaultHref slot="start"></ion-back-button>
+    <ion-title class='vendor-head'>Add Banner</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="addproductContainer">
+      <ion-input type="text" name="title" [(ngModel)]="title" placeholder="Enter Title" ></ion-input>
+      
+      <p (click)="changeImage()">Select Image <ion-icon name="image-outline"></ion-icon></p>
+      <img *ngIf="image!=''" style="width: 100px; height: 100px;" src="{{image}}">
+
+       <ion-button  *ngIf="id=='add'" (click)="addBanner()">Add Banner</ion-button>
+      <ion-button  *ngIf="id!='add'" (click)="updateBanner()">Update Banner</ion-button> 
+  </div>
+</ion-content>

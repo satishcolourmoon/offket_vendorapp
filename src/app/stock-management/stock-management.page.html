@@ -1,0 +1,84 @@
+<!-- <ion-header>
+  <ion-toolbar style="--background: #f47a20;color: #fff;">
+    <ion-title>Stock Management</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <h3>Stock Management</h3>
+  <ion-grid>
+    <ion-row>
+      <ion-item>
+        <ion-label position="floating">Quantity</ion-label>
+        <ion-input type="text" id="quantity" [(ngModel)]="quantity" name="quantity" clear-input placeholder="*Quantity">
+        </ion-input>
+      </ion-item>
+    </ion-row>
+    <ion-button small (click)="updatePrice()">Update Stock</ion-button>
+    <ion-button small (click)="dismiss()">Close</ion-button>
+  </ion-grid>
+
+
+</ion-content> -->
+
+
+<ion-content style="--background: transparent">
+  <div class="modalbox1">
+    <ion-grid style="padding: 0;">
+      <ion-row>
+        <ion-col size="12" class="acceptmodal">
+          <h4>Stock Management
+          </h4>
+        </ion-col>
+        <ion-col size="12" style="padding: 10px 15px;">
+          <!-- <ion-label position="floating" style="font-size: 14px;font-weight: 600;margin-bottom: 10px;">Stock Status 
+          </ion-label> -->
+          <ion-select placeholder="Select Stock Status" class="inputbox" id="stockstatus" name="stockstatus" style="padding:12px 20px !important;">
+            <ion-select-option value="add">Add</ion-select-option>
+            <ion-select-option value="remove">Remove</ion-select-option>
+          </ion-select>
+
+        
+
+
+          <!-- <ion-label position="floating" style="font-size: 14px;font-weight: 600;margin-bottom: 10px;">Quantity
+          </ion-label> -->
+          <ion-input type="tel" class="inputbox" id="quantity" name="quantity" clear-input
+            placeholder="*Quantity" style="margin-top:10px;"></ion-input>
+
+          <div style="text-align: center;margin-top: 4%;">
+            <button (click)="updatePrice()">Update Stock</button>
+            <button (click)="dismiss()" style="background:#f11313;width:30%;">Close</button>
+          </div>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid style="height: 400px;overflow-y: auto;padding:0px;">
+    <table>
+      <tr>
+        <th>Product</th>
+        <th>Status</th>
+        <th>QTY</th>
+        <th>Stock</th>
+        <th>Message</th>
+      </tr>
+<tbody>
+      <tr *ngFor="let linkv of stockmanagement">
+        <td>{{linkv.product_id}}</td>
+        <td>{{linkv.paid_status}}</td>
+        <td> {{linkv.quantity}}</td>
+        <td>{{linkv.total_stock}}</td>
+        <td>{{linkv.message}}
+          <small>Date:{{linkv.created_at}}</small>
+        </td>
+
+      </tr>
+</tbody>
+
+    </table>
+
+  </ion-grid>
+  </div>
+
+</ion-content>

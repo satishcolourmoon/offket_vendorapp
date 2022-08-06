@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar style="--background: #fff;color: black;">
+    <ion-back-button defaultHref slot="start"></ion-back-button>
+    <ion-title class='vendor-head'>Sub Categories</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div align='center' style="background-color:#eceaeb;">
+    <p style="margin:0px 0px 0px 10px;padding:13px;color:#05274d;">Product by sub categories</p>
+  </div>
+  <!-- Data to display after skeleton screen -->
+  <!-- Skeleton screen -->
+  <div *ngIf="nval==false" class="emptybox">
+    <img src="assets/images/categories.png" style="margin-left:100px; padding: 8px;" />
+    <h2 style="text-align: center;color: #ff6b00bf;">No Sub Categories Found</h2>
+  </div>
+
+
+  <ion-card style="padding:0px;" *ngFor="let c of sub_categories" class="profilecard" (click)="gotoProductPage(catId,c.id,c.title,shopId)">
+    <ion-card-content style="padding: 5px;" >
+      <ion-row>
+        <ion-col size="10" style="text-align: left;align-items: center;display: flex;">
+          <h4 style="text-transform:none;">{{c.title}}</h4>
+        </ion-col>
+       <ion-col size="2" style="align-items: center;display: flex;">
+          <img class="vendor-img" src="{{c.image}}" width="100%" />
+        </ion-col> 
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

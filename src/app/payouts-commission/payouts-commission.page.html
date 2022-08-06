@@ -1,0 +1,106 @@
+<ion-header>
+  <ion-toolbar style="--background: #05274d;color: #fff;">
+    <ion-back-button defaultHref slot="start"></ion-back-button>
+    <ion-title class="vendor-head">Payout Commission</ion-title>
+  </ion-toolbar>
+  <ion-segment scrollable [(ngModel)]="payouts" name="payouts">
+    <ion-segment-button value="pending_commission" (click)="showOrder('pending_commission')">
+      <ion-icon name="reader-outline" style="margin: 4px;"></ion-icon>
+      Pending Commission
+    </ion-segment-button>
+    <ion-segment-button value="settled_commission" (click)="showOrder('settled_commission')">
+      <ion-icon name="ellipsis-horizontal-circle-outline" style="margin: 4px;"></ion-icon>
+      Settled Commission
+    </ion-segment-button>
+   
+  </ion-segment>
+</ion-header>
+
+
+
+<ion-content>
+
+
+  <div *ngIf="pending_settle==true"><!---->
+    <ion-card *ngFor="let settl of settlements"><!---->
+      <ion-card-content>
+        <ion-row>
+          <ion-col class="orderInfoKey">Vendor Amount</ion-col>
+          <ion-col class="orderData">{{settl.vendor_amount}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="orderInfoKey">Requested Amount</ion-col>
+          <ion-col class="orderData">{{settl.request_amount}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="orderInfoKey">Description</ion-col>
+          <ion-col class="orderData">{{settl.description}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="orderInfoKey">Status</ion-col>
+          <ion-col class="orderData">{{settl.status}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="orderInfoKey">Created Date</ion-col>
+          <ion-col class="orderData">{{settl.created_date}}</ion-col>
+        </ion-row>
+        
+        
+      </ion-card-content>
+    </ion-card>
+     <!-- <ion-card *ngIf="no_pending_settle=='true'"> 
+         <h3 style="text-align: center;color: #05274d;font-size:16px;">{{no_pending_settle}}No Pending Settlements</h3>
+    </ion-card> -->
+  </div>
+
+ <div *ngIf="completed_settle==true">
+    <ion-card *ngFor="let settl of comsettlements">
+      <ion-card-content>
+        <ion-row>
+          <ion-col class="orderInfoKey">Vendor Amount</ion-col>
+          <ion-col class="orderData">{{settl.vendor_amount}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="orderInfoKey">Requested Amount</ion-col>
+          <ion-col class="orderData">{{settl.request_amount}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="orderInfoKey">Requested Date</ion-col>
+          <ion-col class="orderData">{{settl.created_date}}</ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col class="orderInfoKey">Payment Date</ion-col>
+          <ion-col class="orderData">{{settl.payment_date}}</ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col class="orderInfoKey">Payment Mode</ion-col>
+          <ion-col class="orderData">{{settl.mode_payment}}</ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col class="orderInfoKey">Transaction ID</ion-col>
+          <ion-col class="orderData">{{settl.transaction_id}}</ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col class="orderInfoKey">Admin Comment</ion-col>
+          <ion-col class="orderData">{{settl.admin_description}}</ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col class="orderInfoKey">Status</ion-col>
+          <ion-col class="orderData">{{settl.status}}</ion-col>
+        </ion-row>
+
+      </ion-card-content>
+    </ion-card>
+    
+     <ion-card *ngIf="no_completed_settle==true">
+         <h3 style="text-align: center;color: #05274d;font-size:16px;"> No Completed Settlements</h3>
+    </ion-card>
+  </div>
+ 
+ 
+</ion-content>

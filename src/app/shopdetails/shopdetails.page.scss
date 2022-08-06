@@ -1,0 +1,27 @@
+ion-segment{
+    // --background: linear-gradient(brown , brown); 
+    --color: #040404;
+    /* height: 30px; */
+    border-bottom: 1px solid #f47a206e;
+  }
+  ion-segment-button{
+    --color: #0e0e0e;
+    --indicator-color: #f47a20;
+    --background-checked: #ffffff;
+    --color-checked: #f47a20;
+    --indicator-height: 3px;
+    /* min-height: 30px; */
+    text-transform: capitalize;
+    --padding-bottom: 10px;
+    --padding-top: 5px;
+  }
+
+  .shopinfo ion-icon{
+      color:#f47a20;
+  }
+  .viewall_products{
+    --background: #f47a20;
+    width: 50%;
+    margin: 10px auto;
+    display: block;
+  }

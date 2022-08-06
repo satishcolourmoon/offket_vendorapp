@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-toolbar style="--background: #fff;color: black;">
+    <ion-back-button defaultHref slot="start"></ion-back-button>
+    <ion-title class="vendor-head">{{catName}}</ion-title>
+
+     <button slot="end" class="productlist" (click)="filters(shopId,catId,subcatId)">Filters</button>
+    
+  </ion-toolbar>
+  <ion-searchbar placeholder="Search Products" (keyup.enter)="getItems($event)" mode="ios"></ion-searchbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <div *ngIf="products.length>0">
+    <!-- <h2 style="text-align: center;color: #ff6b00bf;">No Products Found</h2> -->
+    <ion-card no-padding *ngFor="let p of products" class="profilecard">
+      <ion-card-content no-padding style="padding: 0px;">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="4">
+              <div style="width: 100px;height:100px;background-size: contain;background-repeat: no-repeat;border: 1px solid #f1f1f1;
+              border-radius: 18px;background-image: url({{p.image}});box-shadow:0px 2px 6px 0px #e2e2e2;background-position: center;">
+
+              </div>
+
+            </ion-col>
+            <ion-col size="8">
+              <h4>{{p.name}}</h4>
+              
+              <p *ngIf="p.types!=''"><b>Type: </b> {{p.types}}</p>
+            <!--  <div *ngFor="let variant of p.link_variants;let i = index">
+                <p *ngIf="i==0"><b>Price:</b> {{variant.price}}&#8377;</p>
+              </div> -->
+              <p style="color:#05274d;font-size:13px;">Category: {{p.category_name}},{{p.subcategory_name}}</p>
+              <p *ngIf="p.online_status=='0'"><b style="color: #000;">Status: </b> <span style="color: red;">OFFLINE</span></p>
+              <p *ngIf="p.online_status=='1'"><b style="color: #000;">Status: </b> <span style="color: green;">ONLINE</span></p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+      <div style="text-align: center;border-top:1px solid #f1f1f1;">
+        <ion-row style="padding:10px 10px 0px 10px;">
+          <ion-col style="padding:0px;margin-left:10px;">
+
+            <ion-button (click)="editProduct(p.id,p.shop_id)">
+              <span style="font-size:12px;margin-left:-8px;">Edit</span><ion-icon name="create-outline" style="margin-right:-8px;font-size:18px;padding-left:5px;margin-top:-3px;"></ion-icon>
+            </ion-button>
+          </ion-col>
+          <ion-col style="padding:0px;">
+            <ion-button (click)="viewProduct(p.id)">
+              <span style="font-size:12px;margin-left:-8px;">View</span><ion-icon name="eye-outline" style="margin-right:-8px;font-size:18px;padding-left:5px;margin-top:-3px;"></ion-icon>
+            </ion-button>
+          </ion-col>
+          <ion-col *ngIf="p.variant_product=='yes'" style="padding:0px">
+            <ion-button (click)="addVariants(p.id)">
+              <span style="font-size:12px;margin-left:-8px;">Variant</span><span style="margin-right:-8px;font-size:18px;padding-left:5px;margin-top:-3px;">+</span>
+            </ion-button>
+          </ion-col>
+          <ion-col style="padding:0px;margin-left:-3px;">
+            <ion-button (click)="viewlinkproduct(p.id)"> 
+              <ion-icon name="list-outline" style="font-size:18px;margin-left:-8px;margin-right:-8px;"></ion-icon>
+            </ion-button>
+          </ion-col>
+          <ion-col style="padding:0px;margin-left:-6px;">
+            <ion-button (click)="deleteProduct(p.id)" style="color:#fff;">
+              <ion-icon name="trash" style="font-size:18px;margin-left:-8px;margin-right:-8px;"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </div>
+
+    </ion-card>
+  </div>
+  <div *ngIf="nval==false" class="emptybox">
+
+    <img src="assets/images/products.png" class="img_user" />
+    <h2 style="text-align: center;color: #05274d;font-size:20px;">No Products Found</h2>
+
+  </div>
+
+
+</ion-content>

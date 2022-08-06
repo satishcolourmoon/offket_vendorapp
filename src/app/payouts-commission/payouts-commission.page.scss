@@ -1,0 +1,26 @@
+ion-segment{
+    // --background: linear-gradient(brown , brown); 
+    --color: #040404;
+    /* height: 30px; */
+    border-bottom: 1px solid #f47a206e;
+  }
+  ion-segment-button{
+    --color: #0e0e0e;
+    --indicator-color: #05274d;
+    --background-checked: #ffffff;
+    --color-checked: #05274d;
+    --indicator-height: 3px;
+    /* min-height: 30px; */
+    text-transform: capitalize;
+    --padding-bottom: 10px;
+    --padding-top: 5px;
+    font-size: 12px;
+  }
+  .vendor-head{
+    font-size:16px;
+    font-weight:600;
+    padding-inline:0px;
+}
+.orderData{
+  text-align:right;
+}

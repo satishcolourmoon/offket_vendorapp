@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar style="--background: #fff;color: black;">
+    <ion-back-button defaultHref slot="start"></ion-back-button>
+    <ion-title class='vendor-head'>Add Offer</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="addproductContainer">
+    <div>
+      <p style="text-align: center;"> If you want clone existing Offer Click</p>
+      <ion-button color="danger" (click)="existingOffer()">New</ion-button>
+    </div>
+
+      <ion-input type="text" name="title" [(ngModel)]="title" placeholder="Enter Title" ></ion-input>
+
+        <ion-select placeholder="Select Category" name="cat_id" [(ngModel)]="cat_id" style="height:45px">
+			<ion-select-option value="{{at.id}}" *ngFor="let at of category_list">{{at.title}}</ion-select-option>
+		</ion-select>
+
+      <p (click)="changeImage()" class="selectimagecls">Select Image <ion-icon name="image-outline" class="selecticon"></ion-icon></p>
+      <section>
+        <ion-datetime placeholder="Start Date" [(ngModel)]="start_date" [min]="date" max="2030-12-30" style="padding: 12px 15px !important;"></ion-datetime>
+        <ion-icon style="float:right;margin-top:-47px;margin-right:20px;" name="calendar-outline"></ion-icon>
+      </section>
+      
+      <section>
+        <ion-datetime placeholder="End Date" [(ngModel)]="end_date" [min]="date" max="2030-12-30" style="padding: 12px 15px !important;"></ion-datetime>
+        <ion-icon style="float:right;margin-top:-47px;margin-right:20px;" name="calendar-outline"></ion-icon>
+      </section>
+
+      <img *ngIf="image!=''" style="width: 100px; height: 100px;" src="{{image}}">
+
+       <ion-button  *ngIf="id=='add'" (click)="addBanner()">Add Offer</ion-button>
+      <ion-button  *ngIf="id!='add'" (click)="updateBanner()">Update Offer</ion-button> 
+  </div>
+</ion-content>
+
+<style>
+  
+</style>

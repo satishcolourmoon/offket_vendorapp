@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar style="--background: #05274d;color: #fff;">
+    <ion-back-button defaultHref slot="start"></ion-back-button>
+    <ion-title class="vendor-head">Settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="padding:15px;">
+    <ion-input name="current_password" [(ngModel)]="current_password" placeholder="Current Password"></ion-input>
+    <ion-input name="new_password" [(ngModel)]="new_password" placeholder="New Password"></ion-input>
+    <ion-input name="confirm_password" [(ngModel)]="confirm_password" placeholder="Confirm Password"></ion-input>
+    <ion-button (click)="changePassword()">Change Password</ion-button>
+  </div>
+
+</ion-content>

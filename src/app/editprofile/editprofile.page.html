@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar>
+  	<ion-back-button defaultHref slot="start"></ion-back-button>
+    <ion-title>Edit Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+		<ion-row style="border: 1px solid #ccc;">
+			 <ion-col>
+			 	<div class="bg-img" [ngStyle]="{ 'background-image': 'url(' + shop_image + ')', 'background-size': 'cover'}">
+			 		<!-- <img src="{{shop_image}}" > -->
+			 		<ion-icon style="background-color: #FFF" name="camera-outline" (click)="notchange()" *ngIf="update_status==1"></ion-icon>
+			 		<ion-icon style="background-color: #FFF" name="camera-outline" (click)="changeCoverPhoto()" *ngIf="update_status==0"></ion-icon>
+			 	</div>
+			</ion-col>
+		</ion-row>
+		
+		<div>
+			<div class="shopProfilPic" [ngStyle]="{ 'background-image': 'url(' + shop_logo + ')', 'background-size': 'cover'}">
+				<!-- <img src="{{shop_image}}" > -->
+				<ion-icon name="camera-outline" (click)="notchange()" *ngIf="update_status==1"></ion-icon>
+				<ion-icon name="camera-outline" (click)="changelogoPhoto()" *ngIf="update_status==0"></ion-icon>
+			</div>
+		</div> 
+		<div style="margin-right:30px; ">
+				<label style="margin-left: 20px; font-weight: bold; ">Shop Name*</label>
+			<ion-input type="text" [(ngModel)]="shop_name" name="shop_name"></ion-input>
+				<label style="margin-left: 20px; font-weight: bold;">Owner Name*</label>
+			<ion-input type="text" [(ngModel)]="owner_name" name="owner_name" owner_name></ion-input>
+
+				<label style="margin-left: 20px; font-weight: bold;">Email</label>
+			<ion-input type="email" [(ngModel)]="email" name="email" readonly style="background-color: #ccc"></ion-input>
+
+				<label style="margin-left: 20px; font-weight: bold;">Mobile</label>
+			<ion-input type="tel" [(ngModel)]="mobile" name="mobile" readonly style="background-color: #ccc"></ion-input>
+
+				<label style="margin-left: 20px; font-weight: bold;">Alternative Mobile</label>
+			<ion-input type="tel" [(ngModel)]="alternative_mobile" name="alternative_mobile" placeholder="Alternative Mobile"></ion-input>
+
+			<label style="margin-left: 20px; font-weight: bold;">Delivery Amount</label>
+			<ion-input type="tel" [(ngModel)]="min_order_amount" name="min_order_amount" placeholder="Delivery Amount"></ion-input>
+
+			<label style="margin-left: 20px; font-weight: bold;">Description</label>
+			<ion-textarea [(ngModel)]="description" name="description" placeholder="Description" clearOnEdit="true"></ion-textarea>
+
+				<label style="margin-left: 20px; font-weight: bold;">Address</label>
+			<ion-textarea [(ngModel)]="address" name="address" placeholder="Address" clearOnEdit="true"></ion-textarea>
+
+				<label style="margin-left: 20px; font-weight: bold;">PAN</label>
+			<ion-input type="text" [(ngModel)]="pan" name="pan" placeholder="PAN"></ion-input>
+
+				<label style="margin-left: 20px; font-weight: bold;">Aadhar Number</label>
+			<ion-input type="text" [(ngModel)]="aadhar" name="aadhar" placeholder="Aadhar Number"></ion-input>
+
+			 <label style="margin-left: 20px; font-weight: bold;">GST Number</label>
+			<ion-input type="text" [(ngModel)]="gst_number" name="gst_number" placeholder="GST Number"></ion-input>
+		</div>
+		<div class="bank">
+			<h3 style="margin:0px;font-size:18px; font-weight: bold;">Bank Details</h3>
+		</div>
+		<div style="margin-right:30px;">
+					<label style="margin-left: 20px; font-weight: bold;">Bank Name</label>
+			<ion-input type="text" [(ngModel)]="bankname" name="bankname" placeholder="Bank Name"></ion-input>
+				<label style="margin-left: 20px; font-weight: bold;">Account Number</label>
+			<ion-input type="text" [(ngModel)]="account_no" name="account_no" placeholder="Account Number"></ion-input>
+				<label style="margin-left: 20px; font-weight: bold;">Account Holder Name</label>
+			<ion-input type="text" [(ngModel)]="accountholder_name" name="accountholder_name" placeholder="Account Holder Name"></ion-input>
+				<label style="margin-left: 20px; font-weight: bold;">Bank IFSC Code</label>
+			<ion-input type="text" [(ngModel)]="bank_ifsccode" name="bank_ifsccode" placeholder="Bank IFSC Code"></ion-input>
+
+			<ion-row>
+				<ion-col class="ion-text-center">
+
+					<ion-button class="edit_button"  (click)="doupdateprofile()" *ngIf="update_status==0">Update</ion-button>
+				</ion-col>
+			</ion-row>
+		</div>
+
+</ion-content>
+
+
+
+

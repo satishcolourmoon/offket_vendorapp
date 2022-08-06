@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-toolbar style="--background: #05274d;color: #fff;">
+    <ion-back-button defaultHref slot="start"></ion-back-button>
+    <ion-title class="vendor-head">User Reviews</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<ion-grid>
+	<ion-card *ngFor="let review of reviews" style="border-radius:15px;color:#000;">
+		<ion-card-content>
+			<ion-row size="12"><!--style="border-bottom: 1px solid #ccc;"-->
+				<ion-col size="12">
+						<!-- <ion-avatar style="margin-bottom: 10px;">
+						   <img src="{{review.user_image}}">
+	   
+						 </ion-avatar> -->
+						 <b>{{review.name}}</b>
+						 <div class="rating" *ngIf="review.rating==5">
+							<ion-icon name="star"></ion-icon>
+							<ion-icon name="star"></ion-icon>
+							<ion-icon name="star"></ion-icon>
+							<ion-icon name="star"></ion-icon>
+							<ion-icon name="star"></ion-icon>
+						</div>
+						<div class="rating" *ngIf="review.rating==4">
+							<ion-icon name="star"></ion-icon>
+							<ion-icon name="star"></ion-icon>
+							<ion-icon name="star"></ion-icon>
+							<ion-icon name="star"></ion-icon>
+							<ion-icon name="star-outline"></ion-icon>
+						</div>
+						<div class="rating" *ngIf="review.rating==3">
+							<ion-icon name="star"></ion-icon>
+							<ion-icon name="star"></ion-icon>
+							<ion-icon name="star"></ion-icon>
+							<ion-icon name="star-outline"></ion-icon>
+							<ion-icon name="star-outline"></ion-icon>
+						</div>
+						<div class="rating" *ngIf="review.rating==2">
+							<ion-icon name="star"></ion-icon>
+							<ion-icon name="star"></ion-icon>
+							<ion-icon name="star-outline"></ion-icon>
+							<ion-icon name="star-outline"></ion-icon>
+							<ion-icon name="star-outline"></ion-icon>
+						</div>
+						<div class="rating" *ngIf="review.rating==1">
+							<ion-icon name="star"></ion-icon>
+							<ion-icon name="star-outline"></ion-icon>
+							<ion-icon name="star-outline"></ion-icon>
+							<ion-icon name="star-outline"></ion-icon>
+							<ion-icon name="star-outline"></ion-icon>
+						</div>
+						<p style="margin:2px;">{{review.review}}</p>
+						<!-- <p style="margin:2px;">{{review.createdat}}</p> -->
+				</ion-col>
+				<!-- <ion-col size="1">
+					<div align='right'>
+						<ion-icon name="trash" style="font-size:18px;color:#f11313"></ion-icon>
+					</div>
+				</ion-col> -->
+		   </ion-row>
+		</ion-card-content>
+	</ion-card>
+	<!-- <ion-card style="border-radius:15px;color:#000;">
+		<ion-card-content>
+			<ion-row size="12">
+				<ion-col size="11">
+						 <b>Test</b>
+						 <div class="rating">
+							<ion-icon name="star"></ion-icon>
+							<ion-icon name="star"></ion-icon>
+							<ion-icon name="star"></ion-icon>
+							<ion-icon name="star"></ion-icon>
+							<ion-icon name="star"></ion-icon>
+						</div>
+						<p style="margin:2px;">This is review This is review This is review This is review</p>
+				</ion-col>
+				<ion-col size="1">
+					<div align='right'>
+						<ion-icon name="trash" style="font-size:18px;color:#f11313"></ion-icon>
+					</div>
+				</ion-col>
+		   </ion-row>
+		</ion-card-content>
+	</ion-card> -->
+	
+	<ion-row size="12" style="border-bottom: 1px solid #ccc; text-align: center;color: #05274d" *ngIf="nval==false">
+		 <ion-col >
+		 	<h3 style="font-size:16px;">No User Reviews</h3>
+		 </ion-col>
+	</ion-row>
+
+  
+
+</ion-grid>
+
+</ion-content>

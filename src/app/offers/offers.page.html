@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar style="--background: #fff;color: black;">
+    <ion-back-button defaultHref slot="start" *ngIf="offer_zone=='yes'"></ion-back-button>
+    <ion-menu-button defaultHref slot="start" *ngIf="offer_zone=='no'"></ion-menu-button>
+    <ion-title class='vendor-head'>Offers</ion-title>
+    <button slot="end" class="productlist" (click)="addBanner(banners_count)">Add Offer</button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- <ion-row class="image-banner">
+    <div>
+      <ion-icon name="trash" style="font-size:18px;color:#f11313;border-radius:50%;background:#fff;padding:5px;margin-top:12px;margin-left:90%;"></ion-icon>
+      <span><img style="margin-top:-38px;" src="../../assets/images/shops/banner.jpg"></span>
+    </div>
+    
+  </ion-row> -->
+
+  <ion-grid style="padding:0px 0px 0px 0px;">
+  <ion-row *ngIf="nval==true">
+    <ion-col siz="12" style="padding:0px;">
+      <table>
+        <tr>
+          <th>Details</th>
+          <th>Image</th>
+          <th>Action</th>
+        </tr>
+        <tr *ngFor="let c of offers">
+          <td>
+          	<p><b>Category :</b> {{c.category}}</p>
+          	<p><b>Title :</b> {{c.title}}</p>
+          	<p><b>Start Date :</b> {{c.start_date}}</p>
+          	<p><b>End Date :</b> {{c.end_date}}</p>
+          </td>
+          <td>
+
+            <ion-img-viewer 
+  title="{{c.category}}"
+  text="{{c.title}}"
+  scheme="dark"
+  src="{{c.app_image}}"
+>
+<div class="imgcls"></div>
+</ion-img-viewer>
+
+           <!--  <img style=" object-fit: cover" src="{{c.app_image}}"> -->
+          </td>
+          <td>
+            <button class="editbtn" (click)="editBanner(c.id,c.app_image,c.title,c.image_file,c.cat_id,c.start_date,c.end_date)">
+              <ion-icon name="create-outline"></ion-icon>
+            </button>
+            <button class="deletebtn" (click)="deleteBanner(c.id)">
+              <ion-icon name="trash-outline"></ion-icon>
+            </button>
+          </td>
+        </tr>
+        
+      </table>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="nval==false">
+    <ion-col>
+      <h3 style="text-align: center;color: red;">No Offers</h3>
+    </ion-col>
+  </ion-row>
+
+  </ion-grid>
+
+    
+</ion-content>
+
+
+
+
+

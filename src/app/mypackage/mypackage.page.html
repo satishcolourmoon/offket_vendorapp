@@ -1,0 +1,74 @@
+<!-- <ion-header [translucent]="true" style="background-color:#f4f5f9;">
+	<ion-toolbar style="--background: #05274d;color: #fff;">
+		<ion-buttons slot="start">
+			<ion-menu-button defaultHref="home"></ion-menu-button>
+		</ion-buttons>
+		<ion-title>My Packages</ion-title>
+	</ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+	<ion-grid class="subscriptionlist">
+		<ion-row class="category" *ngFor="let p of mypackages">
+			<ion-col>
+				<h3>{{p.plan_name}} <small>( <b style="color: red;">Expiry Date : {{p.expiry_date}} </b> )</small></h3>
+				<h4>{{p.title}}</h4>
+				<h4>₹{{p.amount}} <small>( {{p.days}} Days )</small></h4>
+
+				 <p *ngFor="let pln of p.description">{{pln.descr}}</p>
+				<p>Banners Upload Count : {{p.banners}}</p>
+				<p>Products Upload Count : {{p.products}}</p>
+				<p>Coupons Upload Count : {{p.coupons}}</p>
+				<p>Offers Upload Count : {{p.offers}}</p>
+			</ion-col>
+		</ion-row>
+
+	</ion-grid>
+</ion-content>
+ -->
+
+
+
+<ion-header [translucent]="true" style="background-color:#f4f5f9;">
+	<ion-toolbar style="--background: #05274d;color: #fff;">
+		<ion-buttons slot="start">
+			<ion-back-button defaultHref="home"></ion-back-button>
+		</ion-buttons>
+		<ion-title>My Packages</ion-title>
+	</ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+	<!-- <div class="plantext">
+		<p style="text-align: center;">Your plans</p>
+	</div> -->
+
+	<ion-grid class="subscriptionlist" *ngIf="status">
+		<ion-row [ngClass]="{'category':mypackages?.plan_id==1,'classic':mypackages?.plan_id==2,'premium':mypackages?.plan_id==3}">
+			<ion-col>
+				<h3>{{mypackages?.plan_name}}</h3>
+
+				<h4>Expiry Date : {{mypackages?.expiry_date}}</h4>
+				<h4>{{mypackages?.title}}</h4>
+				<h4>₹{{mypackages?.amount}} <small>( {{mypackages?.days}} Days )</small></h4>
+
+				<!-- <p *ngFor="let pln of p.description">{{pln.descr}}</p> -->
+				<p>Banners Upload Count : {{mypackages?.banners}}</p>
+				<p>Products Upload Count : {{mypackages?.products}}</p>
+				<p>Coupons Upload Count : {{mypackages?.coupons}}</p>
+				<p>Offers Upload Count : {{mypackages?.offers}}</p>
+			</ion-col>
+		</ion-row>
+
+	</ion-grid>
+	<ion-grid class="subscriptionlist" *ngIf="!status">
+		<ion-row>
+			<ion-col>
+				<h3 style="color: red; text-align: center;">No packages</h3>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>
+

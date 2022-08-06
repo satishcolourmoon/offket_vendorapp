@@ -1,0 +1,27 @@
+.registersuccess{
+    position: absolute;
+    bottom: 0;
+    background-color: #05274d;
+    width: 100%;
+    border-top-left-radius: 30PX;
+    border-top-right-radius: 30PX;
+    padding: 20px 40px;
+}
+.success_text{
+    margin: auto;
+    display: block;
+    color: #fff;
+    letter-spacing: 1px;
+    font-size: 17px;
+}
+.class_name{
+
+    background-image: url("../../assets/images/registersuccess.png");
+    background-color: #edefc7;
+    --background: none;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-position-y: 90px;
+    background-size: 100%;
+  }
+.btn_login{text-align: center; width: 100%; margin: 0;}

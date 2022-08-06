@@ -1,0 +1,118 @@
+<ion-header>
+	<ion-toolbar style="--background: #05274d;color: #fff;">
+		<ion-back-button defaultHref slot="start"></ion-back-button>
+		<ion-title class='vendor-head'>Business Hours</ion-title>
+		<button (click)="addBusiness()" slot="end" class="productlist"><ion-icon name="add-outline"></ion-icon></button>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+
+	<div class="addvariantbox" *ngIf="showadd==true">
+		<h3>Add Business Hours</h3>
+		<ion-select placeholder="Select Weekday" name="weekname" [(ngModel)]="weekname" interface="popover">
+			<ion-select-option value="sunday">Sunday</ion-select-option>
+			<ion-select-option value="monday">Monday</ion-select-option>
+			<ion-select-option value="tuesday">Tuesday</ion-select-option>
+			<ion-select-option value="wednesday">Wednesday</ion-select-option>
+			<ion-select-option value="thursday">Thursday</ion-select-option>
+			<ion-select-option value="friday">Friday</ion-select-option>
+			<ion-select-option value="saturday">Saturday</ion-select-option>
+		</ion-select>
+		<ion-select placeholder="Select Working" name="working" [(ngModel)]="working" interface="popover">
+			<ion-select-option value="yes">yes</ion-select-option>
+			<ion-select-option value="no">No</ion-select-option>
+		</ion-select>
+
+		
+		 <ion-datetime displayFormat="H:mm" minuteValues="0,30" [(ngModel)]="open_time" name="open_time" value="" placeholder="Open Time"></ion-datetime>
+		 <ion-datetime displayFormat="H:mm" minuteValues="0,30" [(ngModel)]="closed_time" name="closed_time" value="" placeholder="Closed Time"></ion-datetime>
+		 <ion-row>
+		 	<ion-col size="6" align='right'>
+		 		<ion-button (click)="saveWorkingHours()" style="--background:#081f65;--border-radius:15px;">Add</ion-button>
+		 	</ion-col>
+		 	<ion-col size="6">
+		 		<ion-button  color="danger" (click)="closeaddbusi()" style="--border-radius:15px;">Close</ion-button>
+		 	</ion-col>
+		 </ion-row>
+		  
+	</div>
+
+
+	<div class="addvariantbox" *ngIf="editshow==true">
+		<h3>Update Business Hours</h3>
+		 <ion-input type="hidden" [(ngModel)]="wid" name="wid" ></ion-input>
+		<ion-select placeholder="Select Weekday" name="weekname" [(ngModel)]="weekname" interface="popover">
+			<ion-select-option value="sunday">Sunday</ion-select-option>
+			<ion-select-option value="monday">Monday</ion-select-option>
+			<ion-select-option value="tuesday">Tuesday</ion-select-option>
+			<ion-select-option value="wednesday">Wednesday</ion-select-option>
+			<ion-select-option value="thursday">Thursday</ion-select-option>
+			<ion-select-option value="friday">Friday</ion-select-option>
+			<ion-select-option value="saturday">Saturday</ion-select-option>
+		</ion-select>
+		<ion-select placeholder="Select Working" name="working" [(ngModel)]="working" interface="popover">
+			<ion-select-option value="yes">yes</ion-select-option>
+			<ion-select-option value="no">No</ion-select-option>
+		</ion-select>
+
+		
+		 <ion-datetime displayFormat="H:mm" minuteValues="0,15,30,45" [(ngModel)]="open_time" name="open_time" value="" placeholder="Open Time"></ion-datetime>
+		 <ion-datetime displayFormat="H:mm" minuteValues="0,15,30,45" [(ngModel)]="closed_time" name="closed_time" value="" placeholder="Closed Time"></ion-datetime>
+		 <ion-row>
+		 	<ion-col size="6" align='right'>
+		 		<ion-button (click)="updateWorkingHours()" style="--background:#081f65;--border-radius:15px;">Update</ion-button>
+		 	</ion-col>
+		 	<ion-col size="6">
+		 		<ion-button color="danger" (click)="closeaddbusi()" style="--border-radius:15px;">Close</ion-button>
+		 	</ion-col>
+		 </ion-row>
+		  
+	</div>
+
+
+
+	<ion-grid style="padding:0px;">
+		<table>
+			<tr>
+				<th>Weekday</th>
+				<th>Working</th>
+				<th>Open</th>
+				<th>Closed</th>
+				<th>Action</th>
+			</tr>
+          <tbody style="height: 100px;overflow-y: scroll;">
+			<tr *ngFor="let wh of working_hours">
+					<td>{{wh.weekname}}</td>
+					<td>{{wh.working}}</td>
+					<td>{{wh.open_time}}</td>
+					<td>{{wh.closed_time}}</td>
+
+					<td>
+						<button class="editbtn" (click)="editBusiness(wh)">
+							<ion-icon name="create-outline"></ion-icon>
+						</button>
+						<button class="deletebtn" (click)="deleteHours(wh.id)">
+							<ion-icon name="trash-outline"></ion-icon>
+						</button>
+					</td>
+			</tr>
+</tbody>
+
+		</table>
+
+	</ion-grid>
+
+</ion-content>
+
+<style>
+	.updatebtn {
+		color: #fff;
+		background: #f47a20;
+		font-size: 11px;
+		border: 1px solid #b9b3b3;
+		padding: 2px;
+	}
+</style>
