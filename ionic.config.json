@@ -1,0 +1,7 @@
+{
+  "name": "retos",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
