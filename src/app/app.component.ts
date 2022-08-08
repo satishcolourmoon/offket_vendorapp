@@ -94,6 +94,12 @@ async presentContactModal()
               state: {}
             });
           }
+          else if (this.router.url == '/coupons' || this.router.url == '/offers') {
+            this.router.navigate(['/vendor-dashboard', this.userId], {
+              state: {}
+            });
+          }
+
           else 
           {
             window.history.back();

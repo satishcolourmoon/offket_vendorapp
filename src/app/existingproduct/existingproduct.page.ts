@@ -22,7 +22,7 @@ export class ExistingproductPage implements OnInit {
   nval: any;
   product:any;
   subcatid:any;
-
+  brandsjson_data:any;
   constructor(private util: UtilService, private actRoute: ActivatedRoute,
     private router: Router, private api: ApiService, public popoverController: PopoverController,
     private loadingCtrl: LoadingController, public alertController: AlertController,public modalController: ModalController) {
@@ -217,15 +217,16 @@ const alert = await this.alertController.create({
   }
 
 
-  async filters(shopId,catId,subcatId) 
+  async filters(shopId,catId,subcatId,brandsjson_data) 
   {
     const modal = await this.modalController.create({
       component: BrandfilterPage,
-      componentProps: { shopId: shopId,catId:catId,subcatId:subcatId }
+      componentProps: { shopId: shopId,catId:catId,subcatId:subcatId,brandsjson_data:brandsjson_data }
     });
     modal.onDidDismiss().then((data) => {
 
         let json_data = data.data.json_data;
+         this.brandsjson_data = json_data;
          if(json_data.length==0)
          {
 

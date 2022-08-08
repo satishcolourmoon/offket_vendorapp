@@ -32,13 +32,15 @@ export class FilterPage implements OnInit {
   subcatId:any;
   brands:any;
   newArray=[];
+  brandsjson_data:any;
   constructor(private router: Router, private actRoute: ActivatedRoute,public modalController: ModalController,private menu : MenuController,private loadingController: LoadingController,  private util: UtilService, private api: ApiService, navParams: NavParams) 
   { 
       this.shopId = navParams.get('shopId');
 
       this.catId = navParams.get('catId');
       this.subcatId = navParams.get('subcatId');
-      
+      this.brandsjson_data = navParams.get('brandsjson_data');
+      //this.newArray.push(this.brandsjson_data);
   }
 
  ngOnInit() {
@@ -49,18 +51,15 @@ export class FilterPage implements OnInit {
 
   getproductBrands() {
 
-   let brandObj = { action:"getBrands",subcatid:this.subcatId}
+   let brandObj = { action:"getfilterBrands",subcatid:this.subcatId,brandsjson_data:this.brandsjson_data}
 
-    this.api.getBrands((response: any) => {
+    this.api.getfilterBrands((response: any) => {
      
         if (response.status == true) {
           this.brands = response.brands;
-          
         } else {
           //this.util.presentToast(response.message, 'danger', 'bottom', 2500);
         }
-  
-
     }, brandObj);
   }
 
@@ -72,6 +71,7 @@ export class FilterPage implements OnInit {
 
 reset()
 {
+this.brandsjson_data='';
 this.getproductBrands();
 this.newArray=[];
 }

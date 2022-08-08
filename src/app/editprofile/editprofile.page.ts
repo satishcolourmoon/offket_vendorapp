@@ -102,6 +102,13 @@ export class EditprofilePage implements OnInit {
         handler: () => {
           this.takePicture1(0);
           }
+        },{
+          text: 'Camera',
+        role: 'destructive',
+        icon: 'ios-camera',
+        handler: () => {
+          this.takePicture1(1);
+          }
         }
         ]
     });
@@ -114,7 +121,9 @@ export class EditprofilePage implements OnInit {
   {
 
       let options: CameraOptions = {
-          quality: 75,
+          quality: 100,
+          targetHeight: 650,
+          targetWidth: 650,
           encodingType: this.camera.EncodingType.JPEG,
           mediaType: this.camera.MediaType.PICTURE,
           correctOrientation: true
@@ -129,6 +138,9 @@ export class EditprofilePage implements OnInit {
     else
     {
           var optionss = {
+          quality: 100,
+          targetHeight: 650,
+          targetWidth: 650,
           sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
           destinationType: this.camera.DestinationType.FILE_URI
         };
@@ -190,15 +202,14 @@ export class EditprofilePage implements OnInit {
         handler: () => {
           this.takePicture2(0);
           }
-        }
-      /*  ,{
+        },{
           text: 'Camera',
         role: 'destructive',
         icon: 'ios-camera',
         handler: () => {
           this.takePicture2(1);
           }
-        } */
+        } 
 
         ]
     });
@@ -211,7 +222,10 @@ export class EditprofilePage implements OnInit {
   {
 
       let options: CameraOptions = {
-          quality: 75,
+          quality: 100,
+          targetHeight: 650,
+          targetWidth: 650,
+
           encodingType: this.camera.EncodingType.JPEG,
           mediaType: this.camera.MediaType.PICTURE,
           correctOrientation: true
@@ -227,6 +241,9 @@ export class EditprofilePage implements OnInit {
       else
       {
             var optionss = {
+            quality: 100,
+          targetHeight: 650,
+          targetWidth: 650,
             sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
             destinationType: this.camera.DestinationType.FILE_URI
           };

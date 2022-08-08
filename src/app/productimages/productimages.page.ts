@@ -51,7 +51,7 @@ export class ProductimagesPage implements OnInit {
         this.product_images = response.images;
       }
       else {
-        this.util.presentToast(response.message, 'danger', 'bottom', 2500);
+        //this.util.presentToast(response.message, 'danger', 'bottom', 2500);
       }
     }, imagesObj);
   }

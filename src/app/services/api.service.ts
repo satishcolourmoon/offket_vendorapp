@@ -214,6 +214,22 @@ export class ApiService {
       });
   }
 
+  getsubcategoriesShop(callback, subcatObj) {
+    const payload = new HttpParams()
+    .set('action', subcatObj.action)
+      .set('cat_id', subcatObj.catId)
+      .set('vendor_id', subcatObj.shopId)
+    // call post end point
+    return this.httpClient.post(
+      this.baseUrl,
+      payload,
+      { headers: this.headers }
+    )
+      .subscribe((response: Response) => {
+        callback(response);
+      });
+  }
+
   fetchbasicsubcategories(callback, subcatObj) {
     const payload = new HttpParams()
     .set('action', subcatObj.action)
@@ -259,6 +275,21 @@ export class ApiService {
         callback(response);
       });
   }
+
+  getfilterBrands(callback, brandObj) {
+    const payload = new HttpParams()
+    .set('action', brandObj.action)
+    .set('subcatid', brandObj.subcatid)
+     .set('brandsjson_data', brandObj.brandsjson_data)
+    return this.httpClient.post(
+      this.baseUrl,
+      payload,
+      { headers: this.headers }
+    ).subscribe((response: Response) => {
+        callback(response);
+      });
+  }
+
 
   getBrands(callback, brandObj) {
     const payload = new HttpParams()

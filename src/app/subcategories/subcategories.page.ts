@@ -32,8 +32,9 @@ export class SubcategoriesPage implements OnInit {
 
 
 async getshopSubCategories() {
+      this.shopId = localStorage.getItem('fash_user_id');
 
-    let subcatObj = { action: "getsubcategories", catId: this.catId };
+    let subcatObj = { action: "getsubcategories_shop", catId: this.catId,shopId:this.shopId };
    
     let loading = await this.loadingCtrl.create({
                     spinner:'circles',
@@ -41,7 +42,7 @@ async getshopSubCategories() {
                   });
                   loading.present();
 
-    this.api.fetchShopSubCategories((response: any) => {
+    this.api.getsubcategoriesShop((response: any) => {
     loading.dismiss();
         if (response.status == true) {
           this.sub_categories = response.subcategory_list;

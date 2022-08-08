@@ -19,6 +19,7 @@ export class ProductsPage implements OnInit {
   nval: any;
   product:any;
   subcatId:any;
+  brandsjson_data:any;
   constructor(private util: UtilService, private actRoute: ActivatedRoute,
     private router: Router, private api: ApiService, public popoverController: PopoverController,
     private loadingCtrl: LoadingController, public alertController: AlertController,public modalController: ModalController) {
@@ -204,17 +205,16 @@ requestProject(shopId,product,catId)
 
 
 
-  async filters(shopId,catId,subcatId) 
+  async filters(shopId,catId,subcatId,brandsjson_data) 
   {
-
     const modal = await this.modalController.create({
       component: FilterPage,
-      componentProps: { shopId: shopId,catId:catId,subcatId:subcatId }
+      componentProps: { shopId: shopId,catId:catId,subcatId:subcatId,brandsjson_data:brandsjson_data }
     });
     modal.onDidDismiss().then((data) => {
 
         let json_data = data.data.json_data;
-         
+          this.brandsjson_data = json_data;
          if(json_data.length==0 || json_data.length==undefined)
          {
           
@@ -232,7 +232,6 @@ requestProject(shopId,product,catId)
               this.subcatId= this.actRoute.snapshot.paramMap.get('subcatId');
 
           //this.util.hideLoader();
-                  alert(JSON.stringify(response.product_list));
           if(response.status==true)
           {
             this.products = response.product_list;

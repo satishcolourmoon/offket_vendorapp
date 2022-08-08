@@ -52,8 +52,15 @@ this.title = this.actRoute.snapshot.paramMap.get('title');
 
   async buyNow(pid,amount)
   {
+       let loading = await this.loadingCtrl.create({
+                    spinner:'circles',
+                    message: 'Please wait',
+                  });
+                  loading.present();
+
       let vendorObj = {action:"razerpayOrder_id",grand_total:amount,vendor_id:this.vendor_id};
       this.api.generateRazerpay((response: any) => {
+      loading.dismiss();
       if(response.status==true)
       {
             this.order_id= response.order_id;
@@ -105,7 +112,8 @@ this.title = this.actRoute.snapshot.paramMap.get('title');
     };
 
     var cancelCallback = function (error) {
-      alert('Failed: ' + error.description);
+      //alert('Failed: ' + error.description);
+      alert('Payment amount cancelled, please try again');
     };
 
     RazorpayCheckout.open(options, successCallback, cancelCallback);

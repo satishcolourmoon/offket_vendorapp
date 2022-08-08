@@ -3,7 +3,7 @@
     <ion-back-button defaultHref slot="start"></ion-back-button>
     <ion-title class="vendor-head">{{catName}}</ion-title>
 
-     <button slot="end" class="productlist" (click)="filters(shopId,catId,subcatId)">Filters</button>
+     <button slot="end" class="productlist" (click)="filters(shopId,catId,subcatId,brandsjson_data)">Filters</button>
     
   </ion-toolbar>
   <ion-searchbar placeholder="Search Products" (keyup.enter)="getItems($event)" mode="ios"></ion-searchbar>
@@ -39,8 +39,8 @@
                 <p *ngIf="i==0"><b>Price:</b> {{variant.price}}&#8377;</p>
               </div> -->
               <p style="color:#05274d;font-size:13px;">Category: {{p.category_name}},{{p.subcategory_name}}</p>
-              <p *ngIf="p.online_status=='0'"><b style="color: #000;">Status: </b> <span style="color: red;">OFFLINE</span></p>
-              <p *ngIf="p.online_status=='1'"><b style="color: #000;">Status: </b> <span style="color: green;">ONLINE</span></p>
+              <p *ngIf="p.online_show_status=='0'"><b style="color: #000;">Status: </b> <span style="color: red;">OFFLINE</span></p>
+              <p *ngIf="p.online_show_status=='1'"><b style="color: #000;">Status: </b> <span style="color: green;">ONLINE</span></p>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -58,7 +58,7 @@
               <span style="font-size:12px;margin-left:-8px;">View</span><ion-icon name="eye-outline" style="margin-right:-8px;font-size:18px;padding-left:5px;margin-top:-3px;"></ion-icon>
             </ion-button>
           </ion-col>
-          <ion-col *ngIf="p.variant_product=='yes'" style="padding:0px">
+          <ion-col *ngIf="(p.variant_product=='yes') && (p.clone_product_status==0)" style="padding:0px">
             <ion-button (click)="addVariants(p.id)">
               <span style="font-size:12px;margin-left:-8px;">Variant</span><span style="margin-right:-8px;font-size:18px;padding-left:5px;margin-top:-3px;">+</span>
             </ion-button>

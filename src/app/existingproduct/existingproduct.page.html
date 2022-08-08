@@ -1,8 +1,8 @@
 <ion-header>
   <ion-toolbar style="--background: #05274d;color: #fff;">
-    <ion-back-button defaultHref slot="start"></ion-back-button>
+    <ion-menu-button defaultHref slot="start"></ion-menu-button>
     <ion-title class="vendor-head">Admin Products</ion-title>
-    <button slot="end" class="productlist" (click)="filters(shopId,catId,subcatid)">Filters</button>
+    <button slot="end" class="productlist" (click)="filters(shopId,catId,subcatid,brandsjson_data)">Filters</button>
   </ion-toolbar>
   <ion-searchbar placeholder="Search Products" (keyup.enter)="getItems($event)" mode="ios"></ion-searchbar>
 

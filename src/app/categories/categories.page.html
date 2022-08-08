@@ -34,17 +34,21 @@
         </ion-row>
       </ion-card-content>
     </ion-card> -->
-
+    
 
   <ion-card style="padding:0px;" *ngFor="let c of categories" class="profilecard" (click)="gotoPage(c.id,c.title,shopId)">
     <ion-card-content style="padding: 5px;">
       <ion-row>
-        <ion-col size="10" style="text-align: left;align-items: center;display: flex;">
-          <h4 style="text-transform:none;">{{c.title}}</h4>
-        </ion-col>
         <ion-col size="2" style="align-items: center;display: flex;">
           <img class="vendor-img" src="{{c.image}}" width="100%" />
         </ion-col>
+        <ion-col size="8" style="text-align: left;align-items: center;display: flex;">
+          <h4 style="text-transform:none;">{{c.title}}</h4>  
+        </ion-col>
+        <ion-col size="2">
+          <div style="background: #ed4613; border-radius: 50%; color: #fff; width: 40px; height: 40px; line-height: 40px; text-align: center;"> {{c.products_count}} </div>
+        </ion-col>
+        
       </ion-row>
     </ion-card-content>
   </ion-card>

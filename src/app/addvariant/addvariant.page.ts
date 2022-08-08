@@ -105,7 +105,7 @@ export class AddvariantPage implements OnInit {
               loading.dismiss();
                 this.util.hideLoader();
                 if (response.status == true) {
-                  this.util.presentToast(response.message, 'danger', 'top', 2500);
+                  this.util.presentToast(response.message, 'danger', 'bottom', 2500);
                   this.getVariantsList();
 
                   this.createvariant_status = false;
@@ -113,7 +113,7 @@ export class AddvariantPage implements OnInit {
                   this.add_variant=true;
                 }
                 else {
-                  this.util.presentToast(response.message, 'danger', 'top', 2500);
+                  this.util.presentToast(response.message, 'danger', 'bottom', 2500);
                 }
 
             }, variantObj);

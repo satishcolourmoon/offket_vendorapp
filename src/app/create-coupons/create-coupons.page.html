@@ -8,8 +8,8 @@
 <ion-content>
   <div class="addproductContainer">
       <ion-input name="coupon_code" [(ngModel)]="coupon_code" placeholder="Enter Coupon Code" ></ion-input>
-      <ion-input name="percentage" [(ngModel)]="percentage" placeholder="Percentage" ></ion-input>
-      <ion-input name="maximum_amount" [(ngModel)]="maximum_amount" placeholder="Maximum Amount" ></ion-input>
+      <ion-input type="tel" name="percentage" [(ngModel)]="percentage" placeholder="Percentage" ></ion-input>
+      <ion-input type="tel" name="maximum_amount" [(ngModel)]="maximum_amount" placeholder="Maximum Amount" ></ion-input>
       <section>
         <ion-datetime placeholder="Start Date" [(ngModel)]="start_date" [min]="date" max="2030-12-30" style="padding: 12px 15px !important;"></ion-datetime>
         <ion-icon style="float:right;margin-top:-47px;margin-right:20px;" name="calendar-outline"></ion-icon>
@@ -20,9 +20,9 @@
         <ion-icon style="float:right;margin-top:-47px;margin-right:20px;" name="calendar-outline"></ion-icon>
       </section>
 
-      <ion-input name="utilization" [(ngModel)]="utilization" placeholder="Utilization Coupon Count" ></ion-input>
+      <ion-input type="tel" name="utilization" [(ngModel)]="utilization" placeholder="Utilization Coupon Count" ></ion-input>
 
-      <ion-input name="minimum_order_amount" [(ngModel)]="minimum_order_amount" placeholder="Minimum Order Amount" ></ion-input>
+      <ion-input type="tel" name="minimum_order_amount" [(ngModel)]="minimum_order_amount" placeholder="Minimum Order Amount" ></ion-input>
       <ion-textarea rows="6" cols="20" name="description" [(ngModel)]="description" placeholder=" Description" ></ion-textarea>
       <ion-button (click)="addCoupon()" *ngIf="id=='add'">Add Coupons</ion-button>
       <ion-button (click)="updateCoupon()" *ngIf="id!='add'">Update Coupons</ion-button>
